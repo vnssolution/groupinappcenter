@@ -32,18 +32,18 @@ export function heightScale(dimension) {
     return (dimension / standardHeight) * myHeight;
 }
 export const SCRBG ="#FAF4FF"
-console.log("fonts " +"widthScale(30) =" +widthScale(30));
-console.log("fonts " +"widthScale(28) =" +widthScale(28));
-console.log("fonts " +"widthScale(26) =" +widthScale(26));
-console.log("fonts " +"widthScale(24) =" +widthScale(24));
-console.log("fonts " +"widthScale(22) =" +widthScale(22));
-console.log("fonts " +"widthScale(16) =" +widthScale(16));
-console.log("fonts " +"widthScale(18) =" +widthScale(18));
-console.log("fonts " +"widthScale(15) =" +widthScale(15));
-console.log("fonts " +"widthScale(14) =" +widthScale(14));
-console.log("fonts " +"widthScale(12) =" +widthScale(12));
-console.log("fonts " +"widthScale(10) =" +widthScale(10));
-console.log("fonts " +"widthScale(9) =" +widthScale(9));
+// console.log("fonts " +"widthScale(30) =" +widthScale(30));
+// console.log("fonts " +"widthScale(28) =" +widthScale(28));
+// console.log("fonts " +"widthScale(26) =" +widthScale(26));
+// console.log("fonts " +"widthScale(24) =" +widthScale(24));
+// console.log("fonts " +"widthScale(22) =" +widthScale(22));
+// console.log("fonts " +"widthScale(16) =" +widthScale(16));
+// console.log("fonts " +"widthScale(18) =" +widthScale(18));
+// console.log("fonts " +"widthScale(15) =" +widthScale(15));
+// console.log("fonts " +"widthScale(14) =" +widthScale(14));
+// console.log("fonts " +"widthScale(12) =" +widthScale(12));
+// console.log("fonts " +"widthScale(10) =" +widthScale(10));
+// console.log("fonts " +"widthScale(9) =" +widthScale(9));
 export const TextStyles = StyleSheet.create(
     {
 

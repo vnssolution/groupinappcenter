@@ -17,9 +17,10 @@ class DropdownScreen extends Component {
     }
     componentDidMount() {
         LogBox.ignoreLogs(['useNativeDriver',]);
+        LogBox.ignoreAllLogs()
     }
     render() {
-        const { data ,datavalue,itemclr,font,itemTextStyle,baseTextstyle} = this.props
+        const { data ,value,itemclr,font,itemTextStyle,style,dropdownPosition,} = this.props
         return (
             <View style={styles.container}>
                 <Dropdown
@@ -33,11 +34,11 @@ class DropdownScreen extends Component {
                     }}
                     animationDuration={1}
                     rippleDuration={1}
-                    value={datavalue}
+                    value={value}
                     data={data}
                     renderAccessory={() => null}
-                    dropdownPosition={-5}
-                    style={baseTextstyle}
+                    dropdownPosition={dropdownPosition}
+                    style={style}
                     itemTextStyle={itemTextStyle}
                     inputContainerStyle={{ borderBottomColor: 'transparent',  width: '100%', }}
                 />

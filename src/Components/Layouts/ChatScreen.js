@@ -6,6 +6,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import TextStyles, { widthScale } from '../../CssStyles/TextStyles';
 import CssStyles from '../../CssStyles/CssStyles';
 import DocumentPicker from 'react-native-document-picker';
+import { LogBox } from 'react-native';
 
 
 class ChatScreen extends Component {
@@ -16,16 +17,18 @@ class ChatScreen extends Component {
             message_name: "",
             showmenu: false,
             exitgroupmenu: false,
+            messageslist: [],
 
         }
     }
     componentDidMount() {
-        console.log(this.state.navigation)
+        LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+        // console.log(this.state.navigation)
     }
     messageChange(event) {
         if (event !== null && event !== "" && event.length > 0) {
             //   this.SearchData(event);
-            console.log("event", event)
+            // console.log("event", event)
         }
     }
     showmenufn(value) {
@@ -72,12 +75,12 @@ class ChatScreen extends Component {
                     </View>
                     <View style={{ flexDirection: 'row', margin: '1%' }}>
                         <View style={{ flex: 1, }}>
-                            <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '5%' }}>3.32pm</Text>
+                            <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '5%' }}>3.32pm</Text>
                         </View>
                         <View style={{ flex: 1, alignItems: 'flex-end', alignContent: 'flex-end', justifyContent: 'flex-end', marginTop: '2%', marginRight: '2%' }}>
-                        <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center',marginTop: '-3%', }}>
-                                <Image style={{  width: wp('3.5%', 812), height: 12, }} source={require('../../Images/purplecheck3x.png')} />
-                                <Image style={{  width: wp('3.5%', 812), height: 12,left:wp(-4.5,812), }} source={require('../../Images/purplecheck3x.png')} />
+                            <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', marginTop: '-3%', }}>
+                                <Image style={{ width: wp('3.5%', 812), height: 12, }} source={require('../../Images/purplecheck3x.png')} />
+                                <Image style={{ width: wp('3.5%', 812), height: 12, left: wp(-4.5, 812), }} source={require('../../Images/purplecheck3x.png')} />
                             </View>
                         </View>
                     </View>
@@ -103,13 +106,13 @@ class ChatScreen extends Component {
 
                         <View style={{ flexDirection: 'row', margin: '1%' }}>
                             <View style={{ flex: 1, }}>
-                                <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '5%', color: '#b2b2b2' }}>3.32pm</Text>
+                                <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', marginLeft: '5%', color: '#b2b2b2' }}>3.32pm</Text>
                             </View>
                             <View style={{ flex: 1, alignItems: 'flex-end', alignContent: 'flex-end', justifyContent: 'flex-end', marginTop: '2%', marginRight: '2%' }}>
-                            <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', marginTop: '-3%', }}>
-                                <Image style={{  width: wp('3.5%', 812), height: 12, }} source={require('../../Images/purplecheck3x.png')} />
-                                <Image style={{  width: wp('3.5%', 812), height: 12,left:wp(-4.5,812), }} source={require('../../Images/purplecheck3x.png')} />
-                            </View>
+                                <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', marginTop: '-3%', }}>
+                                    <Image style={{ width: wp('3.5%', 812), height: 12, }} source={require('../../Images/purplecheck3x.png')} />
+                                    <Image style={{ width: wp('3.5%', 812), height: 12, left: wp(-4.5, 812), }} source={require('../../Images/purplecheck3x.png')} />
+                                </View>
                             </View>
                         </View>
                     </View>
@@ -128,7 +131,7 @@ class ChatScreen extends Component {
         return (
             <View style={{ alignItems: 'flex-start', margin: '2%', flexDirection: 'row' }}>
                 <View style={styles.talkBubble}>
-                    <View style={styles.talkBubbleTriangle} />
+                    {/* <View style={styles.talkBubbleTriangle} /> */}
                     <View style={styles.talkBubbleSquare} >
 
                         <View style={{ marginLeft: "2%" }}>
@@ -140,13 +143,13 @@ class ChatScreen extends Component {
                             <Text style={{ flex: 2, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', margin: '4%', marginTop: '2%', color: '#000000' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</Text>
                             <View style={{ flex: 1, flexDirection: 'row' }}>
                                 <View style={{ flex: 0.5, }}>
-                                    <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '7%', color: 'rgba(0, 0, 0, 0.5)' }}>3.36pm</Text>
+                                    <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', marginLeft: '7%', color: 'rgba(0, 0, 0, 0.5)' }}>3.36pm</Text>
                                 </View>
                                 <View style={{ flex: 0.5, alignItems: 'flex-end', alignContent: 'flex-end', justifyContent: 'flex-end', marginTop: '2%', marginRight: '2%' }}>
-                                <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center',  marginTop: '-3%',}}>
-                                <Image style={{  width: wp('3.5%', 812), height: 12 }} source={require('../../Images/check3x.png')} />
-                                {/* <Image style={{ width: wp('3.5%', 812), height: 12,left:wp(-4.5,812),}} source={require('../../Images/check3x.png')} /> */}
-                            </View>
+                                    <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', marginTop: '-3%', }}>
+                                        <Image style={{ width: wp('3.5%', 812), height: 12 }} source={require('../../Images/check3x.png')} />
+                                        {/* <Image style={{ width: wp('3.5%', 812), height: 12,left:wp(-4.5,812),}} source={require('../../Images/check3x.png')} /> */}
+                                    </View>
                                 </View>
                             </View>
                         </View>
@@ -161,12 +164,159 @@ class ChatScreen extends Component {
 
         )
     }
+    leftbubblege(){
+        return(
+            <View style={{ flex: 1, alignItems: 'flex-start', margin: '1%', flexDirection: 'row' }}>
+            <View style={styles.talkBubble}>
+                <View style={styles.talkBubbleTriangle} />
+                <View style={styles.talkBubbleSquare} >
+                    <View style={{ marginLeft: "2%" }}>
+                        <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-bold-webfont', fontWeight: 'bold', color: '#90ee90', margin: '3%', marginBottom: '1%', marginLeft: '4%' }}>
+                            Contactname
+                            </Text>
+                        <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '4%', }}>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                        </Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', }}>
+                        <View style={{ flex: 1, marginBottom: '2%' }}>
+                            <Text style={{ fontSize:  widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '6%', marginTop: '2%' }}>3.32pm</Text>
+                        </View>
+                    </View>
+                </View>
+
+
+            </View>
+            <TouchableOpacity style={styles.sendview} onPress={() => { Alert.alert("Send clicked") }}>
+                <Image source={require('../../Images/Send.png')} />
+            </TouchableOpacity>
+
+        </View>
+        )
+    }
+    leftbubblegeicon(){
+        return(
+            <View style={{ alignItems: 'flex-start', margin: '1%', flexDirection: 'row' }}>
+            <View style={{
+                elevation: 5,
+                position: 'absolute',
+                top: 5,
+                right: 2,
+                width: 0,
+                height: 0,
+                marginLeft: '1%'
+            }} />
+            <Image style={{
+                width: wp('6%', 812),
+                height: hp('3%', 812),
+
+
+            }} resizeMode='contain' source={this.state.navigation.uri} />
+
+            <View style={{
+                width: '80%',
+                backgroundColor: 'transparent',
+                marginLeft: '1%',
+                shadowOpacity: 0.5,
+                flexDirection: 'row',
+                shadowColor: '#F7FCFC'
+            }}>
+                <View style={[styles.talkBubbleSquare, { marginRight: '2%' }]} >
+                    <View style={{ marginLeft: "2%" }}>
+                        <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-bold-webfont', color: '#8a2be2', margin: '3%', marginBottom: '1%', marginLeft: '4%' }}>
+                            Contactname
+                            </Text>
+                        <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '4%', }}>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+
+                        </Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', }}>
+                        <View style={{ flex: 1, marginBottom: '2%' }}>
+                            <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '6%', marginTop: '2%' }}>3.32pm</Text>
+                        </View>
+                    </View>
+                </View>
+
+
+            </View>
+            <TouchableOpacity style={styles.sendview} onPress={() => { Alert.alert("Send clicked") }}>
+                <Image source={require('../../Images/Send.png')} />
+            </TouchableOpacity>
+
+        </View>
+        )
+    }
+    messagesappend(mesg) {
+        var RandomNumber = Math.floor(Math.random() * Date.now());
+        var hours = new Date().getHours(); //To get the Current Hours
+        var min = new Date().getMinutes(); //To get the Current Minute
+        let obj = {
+            text: mesg,
+            id: RandomNumber,
+            msgdate: hours+":"+min
+
+        }
+        this.state.messageslist.push(obj)
+        this.setState({ message_name: "" })
+        console.log("random number" +  hours+":"+min)
+    }
+
+    renderbubble = ({ item, id }) => {
+        return (
+            <View style={{ alignItems: 'flex-end', margin: '1%', flexDirection: 'row',width:'80%',marginLeft:'auto', }} key={id}>
+                
+                <View style={{
+                    width: item.text.length>6?'auto':'20%',
+                    backgroundColor: 'transparent',
+                    shadowOpacity: 0.5,
+                    shadowColor: '#F7FCFC',
+                    marginLeft: 'auto',
+                    padding:'1%'
+                   }}>
+                      
+                    <View style={{
+                        height: "auto",
+                        backgroundColor: '#E1CDFA',
+                        elevation: 5,
+                        borderBottomLeftRadius: 30,
+                        borderTopLeftRadius: 30,
+                        borderBottomRightRadius: 30,
+                        marginRight: '5%',
+                       
+                      
+                    }} >
+                        <View style={{justifyContent:'center',alignContent:'center',alignItems:'center' }}>
+                            <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', margin: '3%' }}>
+                                {item.text}
+                            </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row',justifyContent:'center',alignContent:'space-between',alignItems:'center',position:'relative',paddingLeft:widthScale(3)  }}>
+                        <View style={{ flex: 1, fontSize: widthScale(12), fontFamily: 'silka-medium-webfont', alignItems: 'flex-start', justifyContent: 'center', }}>
+                                <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '5%' }}>{item.msgdate}</Text>
+                            </View>
+                            <View style={{ flex: 0.2, alignItems: 'flex-end', alignContent: 'flex-end', justifyContent: 'flex-end', marginRight: '2%', }}>
+                                <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', marginTop: '-3%', }}>
+                                    <Image style={{ width: wp('3.5%', 812), height: 12, }} source={require('../../Images/purplecheck3x.png')} />
+                                    <Image style={{ width: wp('3.5%', 812), height: 12, left: wp(-4.5, 812), }} source={require('../../Images/purplecheck3x.png')} />
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.RighttalkBubbleTriangle} />
+
+                </View>
+            </View>
+        )
+    }
+
 
     render() {
         return (
             <View style={styles.maincontainer}>
                 {/* <View style={{ height: hp('8%'), backgroundColor: '#511D73', }}> */}
-                    <ImageBackground style={{ height: hp('8%') }}
+                <ImageBackground style={{ height: hp('8%') }}
                     source={require('../../Images/bg.png')}>
                     <View style={styles.mainfirstview}>
 
@@ -174,10 +324,10 @@ class ChatScreen extends Component {
                             <Image style={styles.roundrecimagestyles} source={require('../../Images/back.png')} />
                             {/* <ImageBackground style={styles.ellipsebackground} resizeMode='cover'
                                 source={require('../../Images/greenellipse.png')}> */}
-                                <Image style={{
-                                    resizeMode: 'contain', width: wp('10%',812),
-                                    height: hp('6%',812),
-                                }} source={this.state.navigation.uri} />
+                            <Image style={{
+                                resizeMode: 'contain', width: wp('10%', 812),
+                                height: hp('6%', 812),
+                            }} source={this.state.navigation.uri} />
                             {/* </ImageBackground> */}
                         </TouchableOpacity>
 
@@ -192,7 +342,7 @@ class ChatScreen extends Component {
                                         otherParam: 'true',
                                         uri: this.state.navigation.uri,
                                         admin: this.state.navigation.admin,
-                                        chatscreen:this.state.navigation.chatscreen
+                                        chatscreen: this.state.navigation.chatscreen
                                     });
                                 }}
                             >
@@ -222,12 +372,12 @@ class ChatScreen extends Component {
                         </TouchableOpacity>
 
                     </View>
-                    </ImageBackground>
+                </ImageBackground>
                 {/* </View> */}
-              
-                    <ImageBackground style={CssStyles.backgroundImage}
-                        source={require('../../Images/chatbg.png')}>
-                              <ScrollView contentContainerStyle={{ paddingBottom: 2, }}>
+
+                <ImageBackground style={CssStyles.backgroundImage}
+                    source={require('../../Images/chatbg.png')}>
+                    <ScrollView contentContainerStyle={{ paddingBottom: 2, }}>
                         <View style={{ flex: 1, }}>
                             <View style={{ alignContent: 'center', justifyContent: 'center', alignItems: 'center', marginTop: '5%', margin: '3%' }}>
                                 <View style={{ flex: 1, height: 20, borderRadius: 5, borderWidth: 1, alignContent: 'center', justifyContent: 'center', alignItems: 'center', backgroundColor: "#B388CD", borderColor: "#B388CD", }}>
@@ -248,10 +398,27 @@ class ChatScreen extends Component {
                                 </View>
                                 : null}
 
+                            {this.state.navigation.chatscreen === "generalscreen" ?
+                                <View>
+                                   {this.leftbubblegeicon()}
+                                    {this.rightbubble()}
+                                    {this.leftbubblege()}
+                                    {this.leftbubblege()}
+                                </View>
+                                : null}
+
+                            <FlatList
+                            data={this.state.messageslist}
+                            renderItem={(item) => this.renderbubble(item)}
+                            keyExtractor={(item) => item.id.toString()}
+
+
+                        />
+
                         </View>
-                        </ScrollView>
-                    </ImageBackground>
-              
+                    </ScrollView>
+                </ImageBackground>
+
                 {this.state.navigation.admin == true || this.state.navigation.chatscreen === "broadcastscreen" ?
                     <View style={{
                         backgroundColor: '#fff',
@@ -313,7 +480,7 @@ class ChatScreen extends Component {
                             </TouchableOpacity>
                             :
                             <TouchableOpacity style={{ flex: 1, width: wp('12%', 812), marginLeft: 'auto', justifyContent: 'center', }}
-                                onPress={() => { Alert.alert("send clicked") }}
+                                onPress={() => { this.messagesappend(this.state.message_name) }}
                             >
                                 <Image style={{
                                     resizeMode: 'cover', width: wp('12%', 812),
@@ -479,24 +646,24 @@ class ChatScreen extends Component {
                     //     </Modal>
                     // </View>
                     <View>
-                    <Modal
-                        animationType="fade"
-                        transparent={true}
-                        visible={this.state.showmenu}
-                        onRequestClose={() => {
-                            this.showmenufn(false);
-                        }}
-                    >
-                        <Pressable style={{
-                            width: "100%",
-                            height: "100%",
-                            backgroundColor: "transperent",
-                            marginTop: '1%',
-
-                        }}
-                            onPress={() => { this.showmenufn(false) }}
+                        <Modal
+                            animationType="fade"
+                            transparent={true}
+                            visible={this.state.showmenu}
+                            onRequestClose={() => {
+                                this.showmenufn(false);
+                            }}
                         >
-                            {/* <View style={{
+                            <Pressable style={{
+                                width: "100%",
+                                height: "100%",
+                                backgroundColor: "transperent",
+                                marginTop: '1%',
+
+                            }}
+                                onPress={() => { this.showmenufn(false) }}
+                            >
+                                {/* <View style={{
                                     height: 'auto', backgroundColor: '#fff',
                                     elevation: 50, marginLeft: 'auto', padding: '2%',
                                   
@@ -514,110 +681,110 @@ class ChatScreen extends Component {
 
                                 }}> */}
 
-                            <View style={{
-                                backgroundColor: '#A47CC3',
-                                width:wp('55%',812), borderRadius: 15,
-                                marginLeft: 'auto', elevation: 50,
-                                top: hp('5%', 812),
-                                marginRight: '5%',
-                            }}>
                                 <View style={{
-                                    backgroundColor: '#fff',
-                                    width:wp('55%',812),
-                                    borderTopStartRadius: 90,
-                                    borderBottomRightRadius: 100,
-                                    borderRadius: 15,
-                                    //   borderEndWidth:1,
-                                    //   borderStartWidth:1,
-                                    //   borderTopWidth:1,
-                                    //   borderBottomWidth:1,
-                                    //   borderTopColor:'#640093',
-                                    //   borderBottomColor:'#640093',
-                                    //   borderEndColor:'#640093',
-                                    //   borderStartColor:'#640093',
+                                    backgroundColor: '#A47CC3',
+                                    width: wp('55%', 812), borderRadius: 15,
+                                    marginLeft: 'auto', elevation: 50,
+                                    top: hp('5%', 812),
+                                    marginRight: '5%',
                                 }}>
-                                    <View style={{marginTop:'10%',marginLeft:'15%',marginBottom:'3%'}}>
-
-                                   
-                                    <Pressable
-                                        style={({ pressed }) => [
-                                            {
-                                                // backgroundColor: pressed
-                                                //     ? '#f2f2f2'
-                                                //     : 'transparent',
-                                                //     borderRadius: 8,
-                                                  margin: '8%'
-                                              
-                                            },
-
-                                        ]}
-                                        onPress={() => { Alert.alert("Search"), this.showmenufn(false) }}>
-                                        <Text style={TextStyles.h4black}>Search</Text>
-                                    </Pressable>
-                                    <Pressable
-                                        style={({ pressed }) => [
-                                            {
-                                                // backgroundColor: pressed
-                                                //     ? '#f2f2f2'
-                                                //     : 'transparent',
-                                                // borderRadius: 8,
-                                              margin: '8%'
-                                            },
-
-                                        ]}
-                                        onPress={() => { Alert.alert("Mute Notification"), this.showmenufn(false) }}>
-                                        <Text style={TextStyles.h4black}>Mute Notification</Text>
-                                    </Pressable>
-                                    <Pressable
-                                        style={({ pressed }) => [
-                                            {
-                                                // backgroundColor: pressed
-                                                //     ? '#f2f2f2'
-                                                //     : 'transparent',
-                                                // borderRadius: 8,
-                                              margin: '8%'
-                                            },
-
-                                        ]}
-                                        onPress={() => { Alert.alert("Clear Chat"), this.showmenufn(false) }}>
-                                        <Text style={TextStyles.h4black}>Clear Chat</Text>
-                                    </Pressable>
-                                    <Pressable
-                                        style={({ pressed }) => [
-                                            {
-                                                // backgroundColor: pressed
-                                                //     ? '#f2f2f2'
-                                                //     : 'transparent',
-                                                // borderRadius: 8,
-                                              margin: '8%'
-                                            },
-
-                                        ]}
-                                        onPress={() => { Alert.alert("Star Messages"), this.showmenufn(false) }}>
-                                        <Text style={TextStyles.h4black}>Star Messages</Text>
-                                    </Pressable>
-
-                                    <Pressable
-                                        style={({ pressed }) => [
-                                            {
-                                                // backgroundColor: pressed
-                                                //     ? '#f2f2f2'
-                                                //     : 'transparent',
-                                                // borderRadius: 8,
-                                              margin: '8%'
-                                            },
-
-                                        ]}
-                                        onPress={() => { this.showexitgroupfn(true), this.showmenufn(false) }}>
-                                                                 <Text style={styles.h5purple}>Delete Group</Text>
-                                    </Pressable>
-
-                                </View>
-                            </View>
+                                    <View style={{
+                                        backgroundColor: '#fff',
+                                        width: wp('55%', 812),
+                                        borderTopStartRadius: 90,
+                                        borderBottomRightRadius: 100,
+                                        borderRadius: 15,
+                                        //   borderEndWidth:1,
+                                        //   borderStartWidth:1,
+                                        //   borderTopWidth:1,
+                                        //   borderBottomWidth:1,
+                                        //   borderTopColor:'#640093',
+                                        //   borderBottomColor:'#640093',
+                                        //   borderEndColor:'#640093',
+                                        //   borderStartColor:'#640093',
+                                    }}>
+                                        <View style={{ marginTop: '10%', marginLeft: '15%', marginBottom: '3%' }}>
 
 
+                                            <Pressable
+                                                style={({ pressed }) => [
+                                                    {
+                                                        // backgroundColor: pressed
+                                                        //     ? '#f2f2f2'
+                                                        //     : 'transparent',
+                                                        //     borderRadius: 8,
+                                                        padding: 6
 
-                            {/* <View style={{ flexDirection: 'row', marginLeft: 'auto' }}>
+                                                    },
+
+                                                ]}
+                                                onPress={() => { Alert.alert("Search"), this.showmenufn(false) }}>
+                                                <Text style={TextStyles.h4black}>Search</Text>
+                                            </Pressable>
+                                            <Pressable
+                                                style={({ pressed }) => [
+                                                    {
+                                                        // backgroundColor: pressed
+                                                        //     ? '#f2f2f2'
+                                                        //     : 'transparent',
+                                                        // borderRadius: 8,
+                                                        padding: 6
+                                                    },
+
+                                                ]}
+                                                onPress={() => { Alert.alert("Mute Notification"), this.showmenufn(false) }}>
+                                                <Text style={TextStyles.h4black}>Mute Notification</Text>
+                                            </Pressable>
+                                            <Pressable
+                                                style={({ pressed }) => [
+                                                    {
+                                                        // backgroundColor: pressed
+                                                        //     ? '#f2f2f2'
+                                                        //     : 'transparent',
+                                                        // borderRadius: 8,
+                                                        padding: 6
+                                                    },
+
+                                                ]}
+                                                onPress={() => { Alert.alert("Clear Chat"), this.showmenufn(false) }}>
+                                                <Text style={TextStyles.h4black}>Clear Chat</Text>
+                                            </Pressable>
+                                            <Pressable
+                                                style={({ pressed }) => [
+                                                    {
+                                                        // backgroundColor: pressed
+                                                        //     ? '#f2f2f2'
+                                                        //     : 'transparent',
+                                                        // borderRadius: 8,
+                                                        padding: 6
+                                                    },
+
+                                                ]}
+                                                onPress={() => { Alert.alert("Star Messages"), this.showmenufn(false) }}>
+                                                <Text style={TextStyles.h4black}>Star Messages</Text>
+                                            </Pressable>
+
+                                            <Pressable
+                                                style={({ pressed }) => [
+                                                    {
+                                                        // backgroundColor: pressed
+                                                        //     ? '#f2f2f2'
+                                                        //     : 'transparent',
+                                                        // borderRadius: 8,
+                                                        padding: 6
+                                                    },
+
+                                                ]}
+                                                onPress={() => { this.showexitgroupfn(true), this.showmenufn(false) }}>
+                                                <Text style={styles.h5purple}>Delete Group</Text>
+                                            </Pressable>
+
+                                        </View>
+                                    </View>
+
+
+
+                                    {/* <View style={{ flexDirection: 'row', marginLeft: 'auto' }}>
                                         <Pressable style={({ pressed }) => [
                                             {
                                                 backgroundColor: pressed
@@ -633,11 +800,11 @@ class ChatScreen extends Component {
                                         </Pressable>
 
                                     </View> */}
-                            {/* </View> */}
-                            </View>
-                        </Pressable>
-                    </Modal>
-                </View>
+                                    {/* </View> */}
+                                </View>
+                            </Pressable>
+                        </Modal>
+                    </View>
 
 
 
@@ -658,144 +825,144 @@ class ChatScreen extends Component {
                             }}
 
                         >
-                            <Pressable  style={{
-                            width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5);',
-                            justifyContent: 'center', alignContent: 'center', alignItems: 'center',
-                            position: 'absolute',left:0,bottom:0,top:0,right:0
-                        }}
+                            <Pressable style={{
+                                width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5);',
+                                justifyContent: 'center', alignContent: 'center', alignItems: 'center',
+                                position: 'absolute', left: 0, bottom: 0, top: 0, right: 0
+                            }}
                                 onPress={() => { this.showexitgroupfn(false) }}
                             >
-                                   <View style={{
-                                backgroundColor: '#A47CC3',
-                                width:wp('87%',812),borderRadius: 30,
-                                justifyContent: 'center', alignContent: 'center', alignItems: 'center',
-                                // position: 'absolute',  bottom: 0,
-
-                            }}>
                                 <View style={{
-                                    backgroundColor: '#fff',
-                                    width:wp('87%',812),
-                                    borderTopStartRadius: 130,
-                                    borderBottomRightRadius: 130,
-                                    borderRadius: 30,
-                                    //   borderEndWidth:1,
-                                    //   borderStartWidth:1,
-                                    //   borderTopWidth:1,
-                                    //   borderBottomWidth:1,
-                                    //   borderTopColor:'#640093',
-                                    //   borderBottomColor:'#640093',
-                                    //   borderEndColor:'#640093',
-                                    //   borderStartColor:'#640093',
+                                    backgroundColor: '#A47CC3',
+                                    width: wp('87%', 812), borderRadius: 30,
+                                    justifyContent: 'center', alignContent: 'center', alignItems: 'center',
+                                    // position: 'absolute',  bottom: 0,
+
                                 }}>
+                                    <View style={{
+                                        backgroundColor: '#fff',
+                                        width: wp('87%', 812),
+                                        borderTopStartRadius: 130,
+                                        borderBottomRightRadius: 130,
+                                        borderRadius: 30,
+                                        //   borderEndWidth:1,
+                                        //   borderStartWidth:1,
+                                        //   borderTopWidth:1,
+                                        //   borderBottomWidth:1,
+                                        //   borderTopColor:'#640093',
+                                        //   borderBottomColor:'#640093',
+                                        //   borderEndColor:'#640093',
+                                        //   borderStartColor:'#640093',
+                                    }}>
 
-                                                                            <Text style={{fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont',justifyContent: 'center',alignContent:'center',alignSelf:'center',textAlign:'center',marginTop:'8%'}}>Are you sure you want to</Text>
-                                                                            <Text style={{fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont',justifyContent: 'center',alignContent:'center',alignSelf:'center',textAlign:'center'}}>delete & exit the group?</Text>
+                                        <Text style={{ fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', justifyContent: 'center', alignContent: 'center', alignSelf: 'center', textAlign: 'center', marginTop: '8%' }}>Are you sure you want to</Text>
+                                        <Text style={{ fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', justifyContent: 'center', alignContent: 'center', alignSelf: 'center', textAlign: 'center' }}>delete & exit the group?</Text>
 
-                                    <Pressable
-                style={({ pressed }) => [{
-                    elevation: 10,
-                    borderRadius: hp('1%', 812), flexDirection: 'row',
-                    justifyContent: 'center', alignContent: 'center', alignItems: 'center',
-                    height: hp('10%', 812),
-                    backgroundColor: pressed
-                        ? '#f2f2f2'
-                        : '#fff',
-                    marginLeft: '5%', marginRight: '3%', marginBottom: '1%', marginTop: '5%',
-                    borderEndColor: "#FFB4B4", borderBottomRightRadius: 30,
-                    borderEndWidth: wp(2.5, 812),
-                    
-
-                }]}
-                
-             >
+                                        <Pressable
+                                            style={({ pressed }) => [{
+                                                elevation: 10,
+                                                borderRadius: hp('1%', 812), flexDirection: 'row',
+                                                justifyContent: 'center', alignContent: 'center', alignItems: 'center',
+                                                height: hp('10%', 812),
+                                                backgroundColor: pressed
+                                                    ? '#f2f2f2'
+                                                    : '#fff',
+                                                marginLeft: '5%', marginRight: '3%', marginBottom: '1%', marginTop: '5%',
+                                                borderEndColor: "#FFB4B4", borderBottomRightRadius: 30,
+                                                borderEndWidth: wp(2.5, 812),
 
 
+                                            }]}
 
-                                    <View style={styles.admincolum}>
+                                        >
 
 
-<Image style={{
-    resizeMode: 'contain', width: wp('15%', 812),
-    height: hp('7%', 812),
-}} source={require("../../Images/users/vectorpopup.png") }/>
-{/* </View> */}
 
-</View>
-<View style={styles.adminseccolumn}>
-                    <View style={{ flex: 0.2 }}></View>
-                    <View style={{ flex: 0.8, flexDirection: 'row', justifyContent: 'center', }}>
-                        <View style={{ flex: 0.6, justifyContent: 'center' }}>
-                            <Text numberOfLines={1} style={TextStyles.itemText}>{this.state.navigation.tittle}</Text>
-                        </View>
-                        <View style={{
-                            flex: 0.4, alignContent: 'flex-end', alignItems: 'flex-end', justifyContent: 'center', padding: '1%'
-                        }}>
-                            <Text numberOfLines={1} style={TextStyles.admintimetext}>3.35pm</Text>
-                        </View>
+                                            <View style={styles.admincolum}>
 
-                    </View>
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', }}>
-                        <View style={{ flexDirection: 'row', flex: 1, }}>
-                            <Image style={{
-                                resizeMode: 'contain', width: wp('4%', 812), top: -9,
 
-                            }} source={require('../../Images/Vectorgroup.png')} />
-                            <Text numberOfLines={1} style={TextStyles.h7lightwhitetext}>
-                                {" "}12{" "}Members
+                                                <Image style={{
+                                                    resizeMode: 'contain', width: wp('15%', 812),
+                                                    height: hp('7%', 812),
+                                                }} source={require("../../Images/users/vectorpopup.png")} />
+                                                {/* </View> */}
+
+                                            </View>
+                                            <View style={styles.adminseccolumn}>
+                                                <View style={{ flex: 0.2 }}></View>
+                                                <View style={{ flex: 0.8, flexDirection: 'row', justifyContent: 'center', }}>
+                                                    <View style={{ flex: 0.6, justifyContent: 'center' }}>
+                                                        <Text numberOfLines={1} style={TextStyles.itemText}>{this.state.navigation.tittle}</Text>
+                                                    </View>
+                                                    <View style={{
+                                                        flex: 0.4, alignContent: 'flex-end', alignItems: 'flex-end', justifyContent: 'center', padding: '1%'
+                                                    }}>
+                                                        <Text numberOfLines={1} style={TextStyles.admintimetext}>3.35pm</Text>
+                                                    </View>
+
+                                                </View>
+                                                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', }}>
+                                                    <View style={{ flexDirection: 'row', flex: 1, }}>
+                                                        <Image style={{
+                                                            resizeMode: 'contain', width: wp('4%', 812), top: -9,
+
+                                                        }} source={require('../../Images/Vectorgroup.png')} />
+                                                        <Text numberOfLines={1} style={TextStyles.h7lightwhitetext}>
+                                                            {" "}12{" "}Members
                                 </Text>
-                        </View>
-                        <View style={{ flexDirection: 'row', flex: 1, marginRight: '2%', justifyContent: 'space-between' }}>
-                            <Image style={{
-                                resizeMode: 'contain', width: wp('3%', 812), top: -9
+                                                    </View>
+                                                    <View style={{ flexDirection: 'row', flex: 1, marginRight: '2%', justifyContent: 'space-between' }}>
+                                                        <Image style={{
+                                                            resizeMode: 'contain', width: wp('3%', 812), top: -9
 
-                            }} source={require('../../Images/star.png')} />
-                            <Text numberOfLines={1} style={TextStyles.h7lightwhitetext} >
-                                {" "}13{" "}Star{" "}Messaages
+                                                        }} source={require('../../Images/star.png')} />
+                                                        <Text numberOfLines={1} style={TextStyles.h7lightwhitetext} >
+                                                            {" "}13{" "}Star{" "}Messaages
                               </Text>
-                        </View>
-                    </View>
-                    <View style={{ flex: 0.2, }}></View>
-                    <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'row', width: '100%', flex: 1, marginTop: '-3%', alignItems: 'center', height: '100%', }}>
-                        {this.state.navigation.purplecheck ?
-                            <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', height: '70%', marginTop: '-3%', }}>
-                                <Image style={{ width: wp('3.5%', 812), height: 12, }} source={require('../../Images/purplecheck3x.png')} />
-                                <Image style={{ width: wp('3.5%', 812), height: 12, left: wp(-4.5, 812), }} source={require('../../Images/purplecheck3x.png')} />
-                            </View>
-                            : null}
-                        {this.state.navigation.greycheck ?
-                            <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', height: '65%', marginTop: '-3%', }}>
-                                <Image style={{ width: wp('3.5%', 812), height: 12 }} source={require('../../Images/check3x.png')} />
-                                <Image style={{ width: wp('3.5%', 812), height: 12, left: wp(-4.5, 812), }} source={require('../../Images/check3x.png')} />
-                            </View>
-                            : null}
-                        <View style={{ flex: 1, }}>
-                            <Text numberOfLines={1} style={TextStyles.memitemText}>{this.state.navigation.message}</Text>
-                        </View>
+                                                    </View>
+                                                </View>
+                                                <View style={{ flex: 0.2, }}></View>
+                                                <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'row', width: '100%', flex: 1, marginTop: '-3%', alignItems: 'center', height: '100%', }}>
+                                                    {this.state.navigation.purplecheck ?
+                                                        <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', height: '70%', marginTop: '-3%', }}>
+                                                            <Image style={{ width: wp('3.5%', 812), height: 12, }} source={require('../../Images/purplecheck3x.png')} />
+                                                            <Image style={{ width: wp('3.5%', 812), height: 12, left: wp(-4.5, 812), }} source={require('../../Images/purplecheck3x.png')} />
+                                                        </View>
+                                                        : null}
+                                                    {this.state.navigation.greycheck ?
+                                                        <View style={{ flexDirection: 'row', width: wp('5%', 812), alignItems: 'center', height: '65%', marginTop: '-3%', }}>
+                                                            <Image style={{ width: wp('3.5%', 812), height: 12 }} source={require('../../Images/check3x.png')} />
+                                                            <Image style={{ width: wp('3.5%', 812), height: 12, left: wp(-4.5, 812), }} source={require('../../Images/check3x.png')} />
+                                                        </View>
+                                                        : null}
+                                                    <View style={{ flex: 1, }}>
+                                                        <Text numberOfLines={1} style={TextStyles.memitemText}>{this.state.navigation.message}</Text>
+                                                    </View>
 
-                    </View>
-                </View>
-                </Pressable>
-<View style={{flexDirection:'row',justifyContent:'center',alignSelf:'center',alignItems:'center',marginTop:'3%'}}>
-                <Image style={{
-                                resizeMode: 'contain', width: wp('5%', 812), marginTop:'1%'
+                                                </View>
+                                            </View>
+                                        </Pressable>
+                                        <View style={{ flexDirection: 'row', marginTop: '3%', marginLeft: '13%' }}>
+                                            <Image style={{
+                                                resizeMode: 'contain', width: wp('5%', 812), marginTop: '1%'
 
-                            }} source={require('../../Images/Rectanglebox.png')} />
-                            <Text style={TextStyles.admintimetext}>Delete for all the group members</Text>
-                </View>
-                <View style={{flexDirection:'row',margin:'5%',justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
-                <View style={styles.purplebutton}>
-                                        <Pressable style={styles. purplebuttonview} onPress={() => { Alert.alert('upload') }}>
-                                            <Text style={styles. purplebuttontext}>CANCEL</Text>
-                                        </Pressable>
+                                            }} source={require('../../Images/Rectanglebox.png')} />
+                                            <Text>Delete for all the group members</Text>
+                                        </View>
+                                        <View style={{ flexDirection: 'row', margin: '5%', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                                            <View style={styles.purplebutton}>
+                                                <Pressable style={styles.purplebuttonview} onPress={() => { Alert.alert('upload') }}>
+                                                    <Text style={styles.purplebuttontext}>CANCEL</Text>
+                                                </Pressable>
+                                            </View>
+                                            <View style={styles.redbutton}>
+                                                <Pressable style={styles.redbuttonview} onPress={() => { Alert.alert('upload') }}>
+                                                    <Text style={styles.redbuttontext}>DELETE</Text>
+                                                </Pressable>
+                                            </View>
+                                        </View>
                                     </View>
-                                    <View style={styles.redbutton}>
-                                        <Pressable style={styles.redbuttonview} onPress={() => { Alert.alert('upload') }}>
-                                            <Text style={styles.redbuttontext}>DELETE</Text>
-                                        </Pressable>
-                                    </View>
-                    </View> 
-                </View>                   
-                                    </View>
+                                </View>
                                 {/* <View style={{
                                     elevation: 50,   backgroundColor: '#A47CC3',   width: 231, 
                                     position: 'absolute', marginLeft: '5%', marginRight: '5%', width: wp('90%', 812),
@@ -809,7 +976,7 @@ class ChatScreen extends Component {
 
 
                                 }}> */}
-                                                                           {/* <View style={{ paddingLeft: '2%', paddingTop: '2%', flex: 1, paddingBottom: '1%', }}>
+                                {/* <View style={{ paddingLeft: '2%', paddingTop: '2%', flex: 1, paddingBottom: '1%', }}>
                                             <Text style={{ flex: 1, fontSize: widthScale(12), fontFamily: 'silka-medium-webfont', color: '#800080', }}>Exit "{this.state.navigation.tittle}" group {" ?"}</Text>
                                         </View>
                                         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-end', marginLeft: 'auto', }}>
@@ -842,8 +1009,8 @@ class ChatScreen extends Component {
                                             </Pressable>
 
                                         </View> */}
-                                  
-                             
+
+
                             </Pressable>
                         </Modal>
                     </View>
@@ -1061,8 +1228,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 30,
         borderBottomRightRadius: 30,
         borderBottomLeftRadius: 30,
-        padding:'2%',
-        paddingBottom:'3%'
+        padding: '2%',
         // borderTopLeftRadius: 5,
     },
     talkBubbleTriangle: {
@@ -1102,7 +1268,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 30,
         marginRight: '5%',
         // borderTopRightRadius: 1,
-        padding:'2%'
+        padding: '2%'
     },
     RighttalkBubbleTriangle: {
         // elevation: 5,
@@ -1128,7 +1294,7 @@ const styles = StyleSheet.create({
     purplebutton: {
         borderRadius: hp('5%', 812), backgroundColor: "rgba(164, 124, 195, 1)", height: hp('5%', 812), width: 'auto', justifyContent: 'center', alignContent: 'center', alignItems: 'center', elevation: 10, padding: '1%',
     },
-    purplebuttonview: {  width: wp('20%',812),justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '1%', padding: '2%',marginBottom:'1%' },
+    purplebuttonview: { width: wp('20%', 812), justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '1%', padding: '2%', marginBottom: '1%' },
     purplebuttontext: {
         textAlign: 'center',
         fontSize: RFValue(16, 812),
@@ -1137,9 +1303,9 @@ const styles = StyleSheet.create({
         padding: '3%'
     },
     redbutton: {
-        borderRadius: hp('5%', 812), backgroundColor: "rgba(121, 43, 169, 1)", height: hp('5%', 812), width: 'auto', justifyContent: 'center', alignContent: 'center', alignItems: 'center', elevation: 10, padding: '1%',marginLeft:'2%'
+        borderRadius: hp('5%', 812), backgroundColor: "rgba(121, 43, 169, 1)", height: hp('5%', 812), width: 'auto', justifyContent: 'center', alignContent: 'center', alignItems: 'center', elevation: 10, padding: '1%', marginLeft: '2%'
     },
-    redbuttonview: {  width: wp('20%',812),justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '1%', padding: '2%',marginBottom:'1%' },
+    redbuttonview: { width: wp('20%', 812), justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '1%', padding: '2%', marginBottom: '1%' },
     redbuttontext: {
         textAlign: 'center',
         fontSize: RFValue(16, 812),
@@ -1148,23 +1314,23 @@ const styles = StyleSheet.create({
         padding: '3%'
     },
     sendview: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10, },
-    h5purple:{ fontSize: RFValue(16, 812), color: '#E00000', fontFamily: 'silka-medium-webfont'},
-    admincolum: {  alignItems: 'center', justifyContent: 'center', },
+    h5purple: { fontSize: RFValue(16, 812), color: '#E00000', fontFamily: 'silka-medium-webfont' },
+    admincolum: { alignItems: 'center', justifyContent: 'center', },
     whitebutton: {
-        borderRadius: hp('5%',812), backgroundColor: "#f2f2f2", 
-        height: hp('5%',812), width: 'auto', justifyContent: 'center', alignContent: 'center',
-         alignItems: 'center', elevation: 10, padding: '3%',
-         
+        borderRadius: hp('5%', 812), backgroundColor: "#f2f2f2",
+        height: hp('5%', 812), width: 'auto', justifyContent: 'center', alignContent: 'center',
+        alignItems: 'center', elevation: 10, padding: '3%',
+
     },
-    whitebuttonview: {  width: wp('80%',812),justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '1%', padding: '2%',marginBottom:'1%' },
+    whitebuttonview: { width: wp('80%', 812), justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '1%', padding: '2%', marginBottom: '1%' },
     whitebuttontext: {
         textAlign: 'center',
         fontSize: RFValue(18, 812),
         color: '#792BA9',
         fontFamily: 'silka-medium-webfont',
-        padding:'3%'
+        padding: '3%'
     },
-  
+
 });
 
 export default ChatScreen

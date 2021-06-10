@@ -768,14 +768,14 @@ export default class GroupInHome extends Component {
                 }]}
                 // onLongPress={()=>this.setState({onLongPress:true})}
                 onPress={() => {
-                    this.props.navigation.navigate("GeneralChatScreen", {
+                    this.props.navigation.navigate("ChatScreen", {
                         itemId: item.id,
                         tittle: item.tittle,
                         grouptext: item.grouptext,
                         otherParam: 'true',
                         uri: item.uri,
                         admin: item.admin,
-                        chatscreen: "adminscreen"
+                        chatscreen: "generalscreen"
                     });
                 }}>
                 <View style={styles.generalfirstcolum}>

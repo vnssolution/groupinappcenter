@@ -205,25 +205,10 @@ class CreateGroupScreen extends React.Component {
             />
           </View>
           <View style={styles.dropdownContainer}>
-            {/* <Dropdown
-              data={data}
-              underlineColor={'rgba(0, 0, 0, 0.5)'}
-              onChange={item => this.changeCity(item)}
-              textInputPlaceholder="Category"
-              textInputPlaceholderColor='rgba(0, 0, 0, 0.5)'
-              textInputStyle={{ fontFamily: 'silka-medium-webfont', fontSize: RFValue(18, 812), }}
-              itemTextStyle={{ fontFamily: 'silka-medium-webfont', fontSize: RFValue(16, 812), color:'rgba(0, 0, 0, 0.5)'}}
-              mainContainerStyle={{ 
-              width: '90%',
-              height: 50,
-              fontFamily: 'silka-medium-webfont', fontSize: RFValue(16, 812), marginLeft:'5%',marginRight:'5%'}}
-              underlineColor='#cccccc'
-
-            /> */}
             <DropdownScreen
              data={categorydata}
              value={"Category"} 
-             baseTextstyle={{fontSize:widthScale(14),fontFamily:'silka-medium-webfont',color:'rgba(0, 0, 0, 0.5)'}}
+             style={{fontSize:widthScale(14),fontFamily:'silka-medium-webfont',color:'rgba(0, 0, 0, 0.5)'}}
              itemTextStyle={{fontSize:widthScale(14),fontFamily:'silka-medium-webfont'}}
              />
             <Image
