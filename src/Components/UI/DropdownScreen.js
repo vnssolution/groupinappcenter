@@ -16,13 +16,10 @@ class DropdownScreen extends Component {
         }
     }
     componentDidMount() {
-        const { data ,datavalue} = this.props
-        LogBox.ignoreLogs(['useNativeDriver']);
-        this.setState({ userType: data,userTypeValue:datavalue })
-        console.log(JSON.stringify(data))
+        LogBox.ignoreLogs(['useNativeDriver',]);
     }
     render() {
-
+        const { data ,datavalue,itemclr,font,itemTextStyle,baseTextstyle} = this.props
         return (
             <View style={styles.container}>
                 <Dropdown
@@ -36,13 +33,15 @@ class DropdownScreen extends Component {
                     }}
                     animationDuration={1}
                     rippleDuration={1}
-                    value={this.state.userTypeValue}
-                    data={this.state.userType}
+                    value={datavalue}
+                    data={data}
+                    renderAccessory={() => null}
                     dropdownPosition={-5}
-                    style={{fontSize:widthScale(16),fontFamily:'silka-medium-webfont',color:'rgba(173, 122, 204, 1)'}}
-                    itemTextStyle={{fontSize:widthScale(14),fontFamily:'silka-medium-webfont',color:'rgba(173, 122, 204, 1)'}}
-                    inputContainerStyle={{ borderBottomColor: 'transparent',  width: '100%' }}
+                    style={baseTextstyle}
+                    itemTextStyle={itemTextStyle}
+                    inputContainerStyle={{ borderBottomColor: 'transparent',  width: '100%', }}
                 />
+                
 
             </View>
 
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginLeft: '5%',
         marginRight: '5%',
-        width: '100%'
+        width: '100%',
     },
     linearGradient: {
         alignItems: 'center',

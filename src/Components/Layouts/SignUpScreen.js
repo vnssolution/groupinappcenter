@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, Animated, Alert, ImageBackground, Image, TextInput, ToastAndroid, KeyboardAvoidingView,Dimensions } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 import { TouchableOpacity,ScrollView } from 'react-native-gesture-handler';
 import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
@@ -91,8 +92,13 @@ export default class SignUpScreen extends Component {
               }} />
             </View> */}
              <View style={styles.groupimageview}>
-              <Text style={TextStyles.h3whitecenter}>Set Your Username and Password</Text>
+              <Text style={[TextStyles.h3whitecenter]}>Set Your Username and Password</Text>
               </View>
+              {/* <View style={styles.groupimageview}>
+              <Text style={TextStyles.h3whitecenter}>Enter the OTP sent to </Text>
+              <Text style={TextStyles.h3whitecenter}>your mobile number</Text>
+
+            </View> */}
               </View>
               <View style={styles.groupinimage}>
                 <ImageBackground source={require('../../Images/signuplogo.png')} style={{

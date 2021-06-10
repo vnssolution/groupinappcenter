@@ -31,6 +31,7 @@ export function widthScale(dimension) {
 export function heightScale(dimension) {
     return (dimension / standardHeight) * myHeight;
 }
+export const SCRBG ="#FAF4FF"
 console.log("fonts " +"widthScale(30) =" +widthScale(30));
 console.log("fonts " +"widthScale(28) =" +widthScale(28));
 console.log("fonts " +"widthScale(26) =" +widthScale(26));

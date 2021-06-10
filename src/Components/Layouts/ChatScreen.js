@@ -8,7 +8,6 @@ import CssStyles from '../../CssStyles/CssStyles';
 import DocumentPicker from 'react-native-document-picker';
 
 
-
 class ChatScreen extends Component {
     constructor(props) {
         super(props);
