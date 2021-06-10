@@ -6,8 +6,10 @@ import { Input } from 'react-native-elements';
 import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
-import TextStyles from '../../CssStyles/TextStyles';
+import TextStyles, { widthScale } from '../../CssStyles/TextStyles';
 import { Alert } from 'react-native';
+import DropdownScreen from '../UI/DropdownScreen';
+import { categorydata } from '../Layouts/DetailsScreen';
 
 
 
@@ -43,7 +45,7 @@ class CreateGroupScreen extends React.Component {
     };
   }
   componentDidMount(){
-    console.log(" create group screen emptygroup"+this.state.navigation.emptygroup)
+    // console.log(" create group screen emptygroup"+this.state.navigation.emptygroup)
 }
   changeCity(item) {
     this.setState({
@@ -121,7 +123,7 @@ class CreateGroupScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={{ width: '100%', height: '100%', backgroundColor: '#fff' }}>
+      <ScrollView style={{ width: '100%', height: '100%', backgroundColor: '#fff', }}>
         <View style={{ width: '100%', height: '100%' }}>
           {/* <View style={{ height: hp('9%'), backgroundColor: '#511D73', }}> */}
             <ImageBackground style={CssStyles.backgroundImage, { height: hp('10%') }}
@@ -186,7 +188,7 @@ class CreateGroupScreen extends React.Component {
               placeholder="Enter Group Name"
               rightIcon={() => this.renderCustomIconA()}
               onChangeText={value => this.setState({ enterdesc: value })}
-              inputStyle={[TextStyles.h4lightwhite,{ fontSize: RFValue(16, 812),}]}
+              inputStyle={[TextStyles.h4lightwhite,{ fontSize:  widthScale(14),}]}
               containerStyle={{ height: 50, }}
               inputContainerStyle={{ width: '100%' ,borderColor:'#cccccc',borderBottomWidth:1}}
 
@@ -197,12 +199,12 @@ class CreateGroupScreen extends React.Component {
               placeholder="Enter Description"
               rightIcon={() => this.renderCustomIconB()}
               onChangeText={value => this.setState({ enterdesc: value })}
-              inputStyle={[TextStyles.h4lightwhite,{ fontSize: RFValue(16, 812),}]}
+              inputStyle={[TextStyles.h4lightwhite,{ fontSize: widthScale(14),}]}
               containerStyle={{ height: 50 }}
               inputContainerStyle={{ width: '100%' ,borderColor:'#cccccc',borderBottomWidth:1}}
             />
           </View>
-          {/* <View style={styles.dropdownContainer}> */}
+          <View style={styles.dropdownContainer}>
             {/* <Dropdown
               data={data}
               underlineColor={'rgba(0, 0, 0, 0.5)'}
@@ -218,34 +220,32 @@ class CreateGroupScreen extends React.Component {
               underlineColor='#cccccc'
 
             /> */}
-          {/* </View> */}
-          <Pressable style={{ width: '95%', marginLeft: '2%',}} onPress={()=>{
-            Alert.alert("Category")
-          }}>
-            <Input
-              placeholder="Category"
-              editable={false}
-              rightIcon={() => this.renderCustomIconD()}
-              onChangeText={value => this.setState({ enterdesc: value })}
-              inputStyle={[TextStyles.h4lightwhite,{ fontSize: RFValue(16, 812),}]}
-              containerStyle={{ height: 50, }}
-              inputContainerStyle={{ width: '100%' ,borderColor:'#cccccc',borderBottomWidth:1}}
+            <DropdownScreen
+             data={categorydata}
+             value={"Category"} 
+             baseTextstyle={{fontSize:widthScale(14),fontFamily:'silka-medium-webfont',color:'rgba(0, 0, 0, 0.5)'}}
+             itemTextStyle={{fontSize:widthScale(14),fontFamily:'silka-medium-webfont'}}
+             />
+            <Image
+              style={styles.dropdownicon}
+              source={require('../../Images/blacdropd3x.png')}
             />
-          </Pressable>
+          </View>
 
           <View style={{ width: '95%', marginLeft: '2%',}}>
             <Input
               placeholder="Location"
               rightIcon={() => this.renderCustomIconC()}
               onChangeText={value => this.setState({ enterdesc: value })}
-              inputStyle={[TextStyles.h4lightwhite,{ fontSize: RFValue(16, 812),}]}
+              inputStyle={[TextStyles.h4lightwhite,{ fontSize: widthScale(14),}]}
               containerStyle={{ height: 50, }}
               inputContainerStyle={{ width: '100%' ,borderColor:'#cccccc',borderBottomWidth:1}}
             />
           </View>
 
           <View style={[styles.darkpurplebuttonview,{marginTop:'5%'}]}>
-            <TouchableOpacity style={styles.darkpurplebutton} onPress={()=>{this.props.navigation.navigate("GroupInHome",{emptygroup:this.state.navigation.emptygroup})}}>
+            <TouchableOpacity style={styles.darkpurplebutton} 
+            onPress={()=>{this.props.navigation.navigate("GroupInHome")}}>
               <Text style={styles.darkpurplebuttontext}>CREATE GROUP</Text>
             </TouchableOpacity>
           </View>
@@ -367,7 +367,11 @@ const styles = StyleSheet.create({
     height: hp('9%', 812),
   },
   dropdownContainer: {
+  marginRight:'5%',
     height: 50,
+  flexDirection: 'row',
+    justifyContent: 'center',
+     alignItems: 'center',
   },
   buttonviews: { marginTop: '1%', justifyContent: 'center', alignContent: 'center', alignItems: 'center', padding: '3%' },
   darkpurplebutton: {
@@ -390,5 +394,9 @@ purplebuttontext: {
 },
 purplebutton:{
   borderRadius: hp('5%',812), backgroundColor: "#4E1373", width:wp('22%',812), justifyContent: 'center', alignContent: 'center', alignItems: 'center', elevation: 10, 
+},
+dropdownicon: {
+  resizeMode: 'contain', width: wp('4%',812),
+  height: hp('5%',812),
 }
 })

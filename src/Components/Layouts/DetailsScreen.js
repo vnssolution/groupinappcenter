@@ -121,9 +121,33 @@ const DetailsScreen = (props) => {
               style={styles.mapIcon}
               source={require('../../Images/category.png')}
             />
-
-            
-            <DropdownScreen data={categorydata}  datavalue={"Category"}/>
+            <DropdownScreen 
+            data={categorydata}  
+            value={"Category"} 
+            baseTextstyle={{fontSize:widthScale(16),fontFamily:'silka-medium-webfont',color:'rgba(173, 122, 204, 1)'}}
+            itemTextStyle={{fontSize:widthScale(16),fontFamily:'silka-medium-webfont'}}
+            />
+            <Image
+              style={styles.dropdownicon}
+              source={require('../../Images/dropdown3x.png')}
+            />
+          </View>
+          <View style={styles.lastborder} />
+          <View style={styles.dropdownContainer}>
+            <Image
+              style={styles.mapIcon}
+              source={require('../../Images/vector8.png')}
+            />
+            <DropdownScreen 
+            data={statedata}  
+            value={"State"} 
+            baseTextstyle={{fontSize:widthScale(16),fontFamily:'silka-medium-webfont',color:'rgba(173, 122, 204, 1)'}}
+            itemTextStyle={{fontSize:widthScale(16),fontFamily:'silka-medium-webfont'}}
+            />
+            <Image
+              style={styles.dropdownicon}
+              source={require('../../Images/dropdown3x.png')}
+            />
           </View>
           <View style={styles.lastborder} />
           <View style={styles.dropdownContainer}>
@@ -133,17 +157,16 @@ const DetailsScreen = (props) => {
             />
 
           
-            <DropdownScreen data={statedata}  datavalue={"State"}/>
-          </View>
-          <View style={styles.lastborder} />
-          <View style={styles.dropdownContainer}>
-            <Image
-              style={styles.mapIcon}
-              source={require('../../Images/vector8.png')}
+            <DropdownScreen 
+            data={CityData}  
+            value={"City"} 
+            baseTextstyle={{fontSize:widthScale(16),fontFamily:'silka-medium-webfont',color:'rgba(173, 122, 204, 1)'}}
+            itemTextStyle={{fontSize:widthScale(16),fontFamily:'silka-medium-webfont'}}
             />
-
-          
-            <DropdownScreen data={CityData}  datavalue={"City"}/>
+            <Image
+              style={styles.dropdownicon}
+              source={require('../../Images/dropdown3x.png')}
+            />
           </View>
           <View style={styles.lastborder} />
           <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '10%', padding: '3%' }}>
@@ -170,17 +193,11 @@ const DetailsScreen = (props) => {
 
 const styles = StyleSheet.create({
   dropdownContainer: {
-    // height: hp('6%'),
-    // flexDirection: 'row',
-    // justifyContent: 'center',
-    // marginLeft: '5%', marginRight: '5%',
-    // marginBottom: '1%',
-    // alignItems: 'center'
     marginLeft: '5%', marginRight:'5%',marginTop:'2%',
     height: 50,
       flexDirection: 'row',
     justifyContent: 'center',
-     alignItems: 'center'
+     alignItems: 'center',
   },
   buttonView: {
     display: 'flex',
@@ -221,6 +238,10 @@ const styles = StyleSheet.create({
   },
   h1whitecenterbold:{ fontSize: RFValue(25, 812), fontFamily: 'silka-medium-webfont', color: '#fff',textAlign:'center', },
   welcomebackimgview: { width: '100%', height: '100%', flex: 1, },
+  dropdownicon: {
+    resizeMode: 'contain', width: wp('4%',812),
+    height: hp('5%',812),
+  }
 
 });
 
