@@ -164,88 +164,88 @@ class ChatScreen extends Component {
 
         )
     }
-    leftbubblege(){
-        return(
+    leftbubblege() {
+        return (
             <View style={{ flex: 1, alignItems: 'flex-start', margin: '1%', flexDirection: 'row' }}>
-            <View style={styles.talkBubble}>
-                <View style={styles.talkBubbleTriangle} />
-                <View style={styles.talkBubbleSquare} >
-                    <View style={{ marginLeft: "2%" }}>
-                        <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-bold-webfont', fontWeight: 'bold', color: '#90ee90', margin: '3%', marginBottom: '1%', marginLeft: '4%' }}>
-                            Contactname
+                <View style={styles.talkBubble}>
+                    <View style={styles.talkBubbleTriangle} />
+                    <View style={styles.talkBubbleSquare} >
+                        <View style={{ marginLeft: "2%" }}>
+                            <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-bold-webfont', fontWeight: 'bold', color: '#90ee90', margin: '3%', marginBottom: '1%', marginLeft: '4%' }}>
+                                Contactname
                             </Text>
-                        <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '4%', }}>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '4%', }}>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
                         </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', }}>
-                        <View style={{ flex: 1, marginBottom: '2%' }}>
-                            <Text style={{ fontSize:  widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '6%', marginTop: '2%' }}>3.32pm</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', }}>
+                            <View style={{ flex: 1, marginBottom: '2%' }}>
+                                <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '6%', marginTop: '2%' }}>3.32pm</Text>
+                            </View>
                         </View>
                     </View>
-                </View>
 
+
+                </View>
+                <TouchableOpacity style={styles.sendview} onPress={() => { Alert.alert("Send clicked") }}>
+                    <Image source={require('../../Images/Send.png')} />
+                </TouchableOpacity>
 
             </View>
-            <TouchableOpacity style={styles.sendview} onPress={() => { Alert.alert("Send clicked") }}>
-                <Image source={require('../../Images/Send.png')} />
-            </TouchableOpacity>
-
-        </View>
         )
     }
-    leftbubblegeicon(){
-        return(
+    leftbubblegeicon() {
+        return (
             <View style={{ alignItems: 'flex-start', margin: '1%', flexDirection: 'row' }}>
-            <View style={{
-                elevation: 5,
-                position: 'absolute',
-                top: 5,
-                right: 2,
-                width: 0,
-                height: 0,
-                marginLeft: '1%'
-            }} />
-            <Image style={{
-                width: wp('6%', 812),
-                height: hp('3%', 812),
+                <View style={{
+                    elevation: 5,
+                    position: 'absolute',
+                    top: 5,
+                    right: 2,
+                    width: 0,
+                    height: 0,
+                    marginLeft: '1%'
+                }} />
+                <Image style={{
+                    width: wp('6%', 812),
+                    height: hp('3%', 812),
 
 
-            }} resizeMode='contain' source={this.state.navigation.uri} />
+                }} resizeMode='contain' source={this.state.navigation.uri} />
 
-            <View style={{
-                width: '80%',
-                backgroundColor: 'transparent',
-                marginLeft: '1%',
-                shadowOpacity: 0.5,
-                flexDirection: 'row',
-                shadowColor: '#F7FCFC'
-            }}>
-                <View style={[styles.talkBubbleSquare, { marginRight: '2%' }]} >
-                    <View style={{ marginLeft: "2%" }}>
-                        <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-bold-webfont', color: '#8a2be2', margin: '3%', marginBottom: '1%', marginLeft: '4%' }}>
-                            Contactname
+                <View style={{
+                    width: '80%',
+                    backgroundColor: 'transparent',
+                    marginLeft: '1%',
+                    shadowOpacity: 0.5,
+                    flexDirection: 'row',
+                    shadowColor: '#F7FCFC'
+                }}>
+                    <View style={[styles.talkBubbleSquare, { marginRight: '2%' }]} >
+                        <View style={{ marginLeft: "2%" }}>
+                            <Text style={{ fontSize: widthScale(12), fontFamily: 'silka-bold-webfont', color: '#8a2be2', margin: '3%', marginBottom: '1%', marginLeft: '4%' }}>
+                                Contactname
                             </Text>
-                        <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '4%', }}>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', marginLeft: '4%', }}>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 
                         </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', }}>
-                        <View style={{ flex: 1, marginBottom: '2%' }}>
-                            <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '6%', marginTop: '2%' }}>3.32pm</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', }}>
+                            <View style={{ flex: 1, marginBottom: '2%' }}>
+                                <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '6%', marginTop: '2%' }}>3.32pm</Text>
+                            </View>
                         </View>
                     </View>
-                </View>
 
+
+                </View>
+                <TouchableOpacity style={styles.sendview} onPress={() => { Alert.alert("Send clicked") }}>
+                    <Image source={require('../../Images/Send.png')} />
+                </TouchableOpacity>
 
             </View>
-            <TouchableOpacity style={styles.sendview} onPress={() => { Alert.alert("Send clicked") }}>
-                <Image source={require('../../Images/Send.png')} />
-            </TouchableOpacity>
-
-        </View>
         )
     }
     messagesappend(mesg) {
@@ -255,27 +255,27 @@ class ChatScreen extends Component {
         let obj = {
             text: mesg,
             id: RandomNumber,
-            msgdate: hours+":"+min
+            msgdate: hours + ":" + min
 
         }
         this.state.messageslist.push(obj)
         this.setState({ message_name: "" })
-        console.log("random number" +  hours+":"+min)
+        console.log("random number" + hours + ":" + min)
     }
 
     renderbubble = ({ item, id }) => {
         return (
-            <View style={{ alignItems: 'flex-end', margin: '1%', flexDirection: 'row',width:'80%',marginLeft:'auto', }} key={id}>
-                
+            <View style={{ alignItems: 'flex-end', margin: '1%', flexDirection: 'row', width: '80%', marginLeft: 'auto', }} key={id}>
+
                 <View style={{
-                    width: item.text.length>6?'auto':'20%',
+                    width: item.text.length > 6 ? 'auto' : '20%',
                     backgroundColor: 'transparent',
                     shadowOpacity: 0.5,
                     shadowColor: '#F7FCFC',
                     marginLeft: 'auto',
-                    padding:'1%'
-                   }}>
-                      
+                    padding: '1%'
+                }}>
+
                     <View style={{
                         height: "auto",
                         backgroundColor: '#E1CDFA',
@@ -284,16 +284,16 @@ class ChatScreen extends Component {
                         borderTopLeftRadius: 30,
                         borderBottomRightRadius: 30,
                         marginRight: '5%',
-                       
-                      
+
+
                     }} >
-                        <View style={{justifyContent:'center',alignContent:'center',alignItems:'center' }}>
+                        <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
                             <Text style={{ flex: 3, fontSize: widthScale(12), fontFamily: 'silka-regular-webfont', margin: '3%' }}>
                                 {item.text}
                             </Text>
                         </View>
-                        <View style={{ flexDirection: 'row',justifyContent:'center',alignContent:'space-between',alignItems:'center',position:'relative',paddingLeft:widthScale(3)  }}>
-                        <View style={{ flex: 1, fontSize: widthScale(12), fontFamily: 'silka-medium-webfont', alignItems: 'flex-start', justifyContent: 'center', }}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'space-between', alignItems: 'center', position: 'relative', paddingLeft: widthScale(3) }}>
+                            <View style={{ flex: 1, fontSize: widthScale(12), fontFamily: 'silka-medium-webfont', alignItems: 'flex-start', justifyContent: 'center', }}>
                                 <Text style={{ fontSize: widthScale(10), fontFamily: 'silka-regular-webfont', color: '#b2b2b2', marginLeft: '5%' }}>{item.msgdate}</Text>
                             </View>
                             <View style={{ flex: 0.2, alignItems: 'flex-end', alignContent: 'flex-end', justifyContent: 'flex-end', marginRight: '2%', }}>
@@ -400,7 +400,7 @@ class ChatScreen extends Component {
 
                             {this.state.navigation.chatscreen === "generalscreen" ?
                                 <View>
-                                   {this.leftbubblegeicon()}
+                                    {this.leftbubblegeicon()}
                                     {this.rightbubble()}
                                     {this.leftbubblege()}
                                     {this.leftbubblege()}
@@ -408,12 +408,12 @@ class ChatScreen extends Component {
                                 : null}
 
                             <FlatList
-                            data={this.state.messageslist}
-                            renderItem={(item) => this.renderbubble(item)}
-                            keyExtractor={(item) => item.id.toString()}
+                                data={this.state.messageslist}
+                                renderItem={(item) => this.renderbubble(item)}
+                                keyExtractor={(item) => item.id.toString()}
 
 
-                        />
+                            />
 
                         </View>
                     </ScrollView>
@@ -942,12 +942,12 @@ class ChatScreen extends Component {
                                                 </View>
                                             </View>
                                         </Pressable>
-                                        <View style={{ flexDirection: 'row', marginTop: '3%', marginLeft: '13%' }}>
+                                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignSelf: 'center', alignItems: 'center', marginTop: '3%' }}>
                                             <Image style={{
                                                 resizeMode: 'contain', width: wp('5%', 812), marginTop: '1%'
 
                                             }} source={require('../../Images/Rectanglebox.png')} />
-                                            <Text>Delete for all the group members</Text>
+                                            <Text style={TextStyles.admintimetext}>Delete for all the group members</Text>
                                         </View>
                                         <View style={{ flexDirection: 'row', margin: '5%', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
                                             <View style={styles.purplebutton}>
