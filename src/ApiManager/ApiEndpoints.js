@@ -1,0 +1,1 @@
+export const BASE_URL = "http://65.0.135.92:8080/GroupIn-API/api-groupin.app/GroupIn";
