@@ -33,7 +33,7 @@ class WelcomeScreen extends React.Component {
                                 }} />
                                 <Text style={TextStyles.h3whitecenter}>Admin</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("DetailsScreen")}>
+                            <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication")}>
                                 <Image source={require('../../Images/Group30.png')} style={{
                                     resizeMode: 'contain', width: wp('30%',812),
                                     height: hp('15%',812),
