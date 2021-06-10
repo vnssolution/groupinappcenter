@@ -713,7 +713,7 @@ class ChatScreen extends Component {
                                                         //     ? '#f2f2f2'
                                                         //     : 'transparent',
                                                         //     borderRadius: 8,
-                                                        padding: 6
+                                                      margin: '8%'
 
                                                     },
 
@@ -728,7 +728,7 @@ class ChatScreen extends Component {
                                                         //     ? '#f2f2f2'
                                                         //     : 'transparent',
                                                         // borderRadius: 8,
-                                                        padding: 6
+                                                      margin: '8%'
                                                     },
 
                                                 ]}
@@ -742,7 +742,7 @@ class ChatScreen extends Component {
                                                         //     ? '#f2f2f2'
                                                         //     : 'transparent',
                                                         // borderRadius: 8,
-                                                        padding: 6
+                                                      margin: '8%'
                                                     },
 
                                                 ]}
@@ -756,7 +756,7 @@ class ChatScreen extends Component {
                                                         //     ? '#f2f2f2'
                                                         //     : 'transparent',
                                                         // borderRadius: 8,
-                                                        padding: 6
+                                                      margin: '8%'
                                                     },
 
                                                 ]}
@@ -771,7 +771,7 @@ class ChatScreen extends Component {
                                                         //     ? '#f2f2f2'
                                                         //     : 'transparent',
                                                         // borderRadius: 8,
-                                                        padding: 6
+                                                      margin: '8%'
                                                     },
 
                                                 ]}

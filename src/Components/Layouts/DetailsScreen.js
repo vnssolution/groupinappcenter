@@ -139,7 +139,7 @@ class DetailsScreen extends Component {
 
 
             <View style={styles.groupimageview}>
-              <Text style={TextStyles.h3whitecenter}>Fill your details</Text>
+              <Text style={[TextStyles.h3whitecenter,{justifyContent:'center',alignSelf:'center',alignContent:'center'}]}>Fill your details</Text>
             </View>
           </View>
           <View style={{ marginLeft: '5%', marginRight: '5%', marginBottom: '5%' }}>
@@ -246,9 +246,9 @@ const styles = StyleSheet.create({
     width: '100%', height: '100%'
   },
   welcjustycenter: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', },
-  textstylewelscrn: { fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', color: '#D9C9E4', textAlign: 'center', },
+  textstylewelscrn: { fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', color: '#D9C9E4', textAlign: 'center'},
   groupimage: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', },
-  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginLeft: '15%' },
+  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center',marginLeft:'18%' },
   textstyle: { fontSize: RFValue(20, 812), fontFamily: 'silka-bold-webfont', color: '#fff', textAlign: 'center' },
   authtextstyle: { fontSize: RFValue(18, 812), color: '#fff' },
   mapIcon: {

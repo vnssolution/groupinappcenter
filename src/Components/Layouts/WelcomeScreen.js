@@ -52,7 +52,7 @@ class WelcomeScreen extends React.Component {
         </TouchableOpacity>
         </View>
         <View style={styles.ContainerView}>
-        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("GroupInHome")}>
+        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication")}>
         <LinearGradient
           colors={['rgba(151, 163, 251, 1)', 'rgba(151, 163, 251, 0.86)', 'rgba(151, 163, 251, 0)' ]}
           style={styles.linearGradient}
