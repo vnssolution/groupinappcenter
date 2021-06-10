@@ -19,7 +19,7 @@ class WelcomeScreen extends React.Component {
                         <Text style={[TextStyles.h3whitecenter, { margin: '10%', fontSize: RFValue(20) }]}>You like to proceed as a admin or user</Text>
                     </View>
                     <View style={styles.Container}>
-                        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("DetailsScreen")}>
+                        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication")}>
                             <LinearGradient
                                 colors={['rgba(255, 164, 164, 1)', 'rgba(255, 169, 169, 0.73)', 'rgba(255, 180, 180, 0)']}
                                 style={styles.linearGradient}
