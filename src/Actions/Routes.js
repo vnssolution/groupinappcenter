@@ -1,47 +1,4 @@
-// import React, { Component } from 'react';
-// import { createStackNavigator } from 'react-navigation-stack';
-// import { createAppContainer } from 'react-navigation';
-// import AuthenticationScreen from './AuthenticationScreen'
-// import HomeScreen from './HomeScreen'
-// import InputOtpScreen from './InputOtpScreen'
 
-
-// // const Stack = createStackNavigator();
-
-// // export default function Routes(){
-// //     return(
-// //         <NavigationContainer>
-// //             <Stack.Navigator initialRouteName="AuthenticationScreen">
-// //                 <Stack.Screen name="Authentication" component={AuthenticationScreen}/>
-// //                 <Stack.Screen name="InputOtp" component={InputOtpScreen}/>
-// //                 <Stack.Screen name="Home" component={HomeScreen}/>
-// //             </Stack.Navigator>
-// //         </NavigationContainer>
-// //     )
-// // }
-
-// const AppSwitchNavigator = createStackNavigator(
-//     {
-//         Authentication: { screen: AuthenticationScreen },
-//         InputOtp: { screen: InputOtpScreen },
-//         Home: { screen: HomeScreen }
-//   },
-//     {
-//       initialRouteName: 'AuthenticationScreen',
-//       headerMode: 'none'
-//     }    
-//   );
-//  class Routes extends Component {
-
-//     render() {
-//         return (
-//             <AppSwitchNavigator />
-//         );
-//     }
-
-// }
-
-// export default createAppContainer(Routes);
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -70,6 +27,7 @@ import Loader from '../Components/UI/Loader';
 import Modal from '../Components/UI/Modal';
 import chatscreen from '../Components/UI/chatscreen';
 import DropdownScreen from '../Components/UI/DropdownScreen';
+
 
 
 const Stack = createStackNavigator();
