@@ -102,7 +102,7 @@ export const TextStyles = StyleSheet.create(
     counttext: { fontSize: widthScale(10), color: '#fff', fontFamily: 'silka-medium-webfont', textAlign: 'center', },
 
     tabTextStyle: { color: '#A47CC3', fontSize: widthScale(16), fontFamily: 'silka-medium-webfont', width: 'auto', justifyContent: 'center', alignItems: 'center', },
-    activeTabTextStyle: { color: '#fff', width: 'auto', fontSize: widthScale(22), fontFamily: 'silka-bold-webfont', justifyContent: 'center', alignItems: 'center', },
+    activeTabTextStyle: { color: '#fff', width: 'auto', fontSize: widthScale(18), fontFamily: 'silka-bold-webfont', justifyContent: 'center', alignItems: 'center', },
 
     oktextstyle: {
         color: '#69C7FF',

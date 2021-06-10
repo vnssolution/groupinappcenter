@@ -1170,7 +1170,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     //     borderRadius: 8,
-                                                        padding: 6
+                                                        margin: '8%'
                                                   
                                                 },
 
@@ -1185,7 +1185,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1199,7 +1199,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1213,7 +1213,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1228,7 +1228,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1333,7 +1333,7 @@ export default class GroupInHome extends Component {
                                         justifyContent: 'center',
                                          alignContent: 'center',
                                          alignItems: 'center',
-                                         margin:'3%'
+                                         margin:'5%'
                                     }}>
                                         <Text style={[TextStyles.h4black, { textAlign: 'center', }]}>You can upload the contact list (.csv, .xls, .vvf) of group members </Text>
                                     </View>

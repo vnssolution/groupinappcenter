@@ -547,7 +547,7 @@ class ChatScreen extends Component {
                                                 //     ? '#f2f2f2'
                                                 //     : 'transparent',
                                                 //     borderRadius: 8,
-                                                    padding: 6
+                                                  margin: '8%'
                                               
                                             },
 
@@ -562,7 +562,7 @@ class ChatScreen extends Component {
                                                 //     ? '#f2f2f2'
                                                 //     : 'transparent',
                                                 // borderRadius: 8,
-                                                padding: 6
+                                              margin: '8%'
                                             },
 
                                         ]}
@@ -576,7 +576,7 @@ class ChatScreen extends Component {
                                                 //     ? '#f2f2f2'
                                                 //     : 'transparent',
                                                 // borderRadius: 8,
-                                                padding: 6
+                                              margin: '8%'
                                             },
 
                                         ]}
@@ -590,7 +590,7 @@ class ChatScreen extends Component {
                                                 //     ? '#f2f2f2'
                                                 //     : 'transparent',
                                                 // borderRadius: 8,
-                                                padding: 6
+                                              margin: '8%'
                                             },
 
                                         ]}
@@ -605,7 +605,7 @@ class ChatScreen extends Component {
                                                 //     ? '#f2f2f2'
                                                 //     : 'transparent',
                                                 // borderRadius: 8,
-                                                padding: 6
+                                              margin: '8%'
                                             },
 
                                         ]}
@@ -776,12 +776,12 @@ class ChatScreen extends Component {
                     </View>
                 </View>
                 </Pressable>
-<View style={{flexDirection:'row',marginTop:'3%',marginLeft:'13%'}}>
+<View style={{flexDirection:'row',justifyContent:'center',alignSelf:'center',alignItems:'center',marginTop:'3%'}}>
                 <Image style={{
                                 resizeMode: 'contain', width: wp('5%', 812), marginTop:'1%'
 
                             }} source={require('../../Images/Rectanglebox.png')} />
-                            <Text>Delete for all the group members</Text>
+                            <Text style={TextStyles.admintimetext}>Delete for all the group members</Text>
                 </View>
                 <View style={{flexDirection:'row',margin:'5%',justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
                 <View style={styles.purplebutton}>
