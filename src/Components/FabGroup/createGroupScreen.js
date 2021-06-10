@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground, SafeAreaView, KeyboardAvoidingView, Pressable, Modal } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { TextInput } from 'react-native-paper';
 import { Input } from 'react-native-elements';
 import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
@@ -158,7 +159,7 @@ class CreateGroupScreen extends React.Component {
                 <Image source={require('../../Images/camera3x.png')} style={styles.badgeimage} />
               </ImageBackground>
             </ImageBackground>
-            <Image source={require('../../Images/messagevector.png')}/>
+            <Image source={require('../../Images/njcfdn.png')}/>
 
           </View>
 

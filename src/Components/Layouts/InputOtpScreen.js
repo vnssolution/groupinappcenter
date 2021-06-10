@@ -6,7 +6,6 @@ import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import OTPVerification from '../UI/OTPVerification';
 import TextStyles from '../../CssStyles/TextStyles';
-import  Modal  from '../UI/Modal';
 import Loader from '../UI/Loader';
 
 // const CELL_COUNT = 5;

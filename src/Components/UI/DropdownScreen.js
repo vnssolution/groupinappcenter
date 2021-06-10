@@ -17,7 +17,7 @@ class DropdownScreen extends Component {
     }
     componentDidMount() {
         const { data ,datavalue} = this.props
-        LogBox.ignoreLogs(['useNativeDriver']);
+        LogBox.ignoreLogs(['useNativeDriver',]);
         this.setState({ userType: data,userTypeValue:datavalue })
         console.log(JSON.stringify(data))
     }

@@ -31,6 +31,7 @@ export function widthScale(dimension) {
 export function heightScale(dimension) {
     return (dimension / standardHeight) * myHeight;
 }
+export const SCRBG ="#FAF4FF"
 console.log("fonts " +"widthScale(30) =" +widthScale(30));
 console.log("fonts " +"widthScale(28) =" +widthScale(28));
 console.log("fonts " +"widthScale(26) =" +widthScale(26));
@@ -102,7 +103,7 @@ export const TextStyles = StyleSheet.create(
     counttext: { fontSize: widthScale(10), color: '#fff', fontFamily: 'silka-medium-webfont', textAlign: 'center', },
 
     tabTextStyle: { color: '#A47CC3', fontSize: widthScale(16), fontFamily: 'silka-medium-webfont', width: 'auto', justifyContent: 'center', alignItems: 'center', },
-    activeTabTextStyle: { color: '#fff', width: 'auto', fontSize: widthScale(22), fontFamily: 'silka-bold-webfont', justifyContent: 'center', alignItems: 'center', },
+    activeTabTextStyle: { color: '#fff', width: 'auto', fontSize: widthScale(18), fontFamily: 'silka-bold-webfont', justifyContent: 'center', alignItems: 'center', },
 
     oktextstyle: {
         color: '#69C7FF',

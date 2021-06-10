@@ -26,7 +26,7 @@ class DocumentScreen extends React.Component {
             <KeyboardAvoidingView style={styles.maincontainer} >
                 <View style={{ height: hp('8%', 812), backgroundColor: '#511D73', }}>
                     {/* <ImageBackground style={CssStyles.backgroundImage, {
-                height: hp('10%')
+                height: hp('12%')
             }}
                 resizeMode='cover'
                 source={require('../../Images/bg.png')}> */}
@@ -86,65 +86,192 @@ class DocumentScreen extends React.Component {
                                     fontFamily: 'silka-medium-webfont', marginLeft: '4%'
                                 }}>Today</Text>
                                 <View style={{ flexDirection: 'row', marginLeft: '4%', marginTop: '2%',}}>
-                                    <View style={{
-                                        backgroundColor: '#fff', width: 'auto', height: hp('15%', 812), borderRadius: hp('2%', 812),
-                                        alignContent: 'center', justifyContent: 'center', alignItems: 'center',padding:'2%'
-
-                                    }}>
+                                   
                                         <Image
                                             resizeMode='center'
                                             style={{
-                                                resizeMode: 'contain', width: wp('25%', 812),
-                                                height: hp('9%', 812),
-                                            }} source={require('../../Images/group3x.png')} />
-                                    </View>
-                                    <View style={{
-                                        backgroundColor: '#fff', width: 'auto', height: hp('15%', 812), borderRadius: hp('2%', 812),
-                                        padding:'2%',
-                                        marginLeft: '2%', alignContent: 'center', justifyContent: 'center', alignItems: 'center'
-                                    }}>
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle1.png')} />
+                                
                                         <Image
                                             resizeMode='center'
                                             style={{
-                                                resizeMode: 'contain', width: wp('25%', 812),
-                                                height: hp('9%', 812),
-                                            }} source={require('../../Images/vector1.png')} />
-                                    </View>
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle2.png')} />
+                                         
+                                           
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle3.png')} />
+                                           
+                                           
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle4.png')} />
+                                          
+                                            
                                 </View>
 
                             </View>
+                            <View>
+                                <View style={{ flexDirection: 'row', marginLeft: '4%', marginTop: '2%',}}>
+                                   
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle8.png')} />
+                                  
+                                  
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle7.png')} />
+                                          
+                                          
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle6.png')} />
+                                           
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle5.png')} />
+                                          
+                                            
+                                </View>
+
+                            </View>
+                            <View>
+                                <View style={{ flexDirection: 'row', marginLeft: '4%', marginTop: '2%',}}>
+                                   
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle10.png')} />
+                                   
+                                   
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle9.png')} />
+                                           
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle11.png')} />
+                                          
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle12.png')} />
+                                         
+                                            
+                                </View>
+
+                            </View>
+                            
                             <View>
                                 <Text style={{
                                     fontSize: RFValue(16, 812),
                                     color: '#A47CC3',
                                     fontFamily: 'silka-medium-webfont', marginLeft: '4%', marginTop: '2%'
                                 }}>Yesterday</Text>
-                                <View style={{ flexDirection: 'row', marginLeft: '4%', marginTop: '2%' }}>
-                                    <View style={{
-                                        backgroundColor: '#fff', width: 'auto', height: hp('15%', 812), borderRadius: hp('2%', 812),
-                                        alignContent: 'center', justifyContent: 'center', alignItems: 'center', padding:'2%',
-                                    }}>
+                                <View style={{ flexDirection: 'row', marginLeft: '4%', marginTop: '2%',}}>
+                                   
                                         <Image
                                             resizeMode='center'
                                             style={{
-                                                resizeMode: 'contain', width: wp('25%', 812),
-                                                height: hp('9%', 812),
-                                            }} source={require('../../Images/vector2.png')} />
-                                    </View>
-                                    <View style={{
-                                        backgroundColor: '#fff', width: 'auto', height: hp('15%', 812), borderRadius: hp('2%', 812),
-                                        alignContent: 'center', justifyContent: 'center', alignItems: 'center',marginLeft: '2%',padding:'2%',
-                                    }}>
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle4.png')} />
+                                  
                                         <Image
                                             resizeMode='center'
                                             style={{
-                                                resizeMode: 'contain', width: wp('25%', 812),
-                                                height: hp('9%', 812),
-                                            }} source={require('../../Images/bluevector.png')} />
-                                    </View>
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle3.png')} />
+                                          
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle1.png')} />
+                                          
+                                           
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle2.png')} />
+                                            </View>
+                                            
+                               
+                                
                                 </View>
-
-                            </View>
+                                <View style={{ flexDirection: 'row', marginLeft: '4%', marginTop: '2%',}}>
+                                  
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle8.png')} />
+                                    
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle9.png')} />
+                                          
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle11.png')} />
+                                           
+                                        <Image
+                                            resizeMode='center'
+                                            style={{
+                                                resizeMode: 'contain', width: wp('23%', 812),
+                                                height: hp('12%', 812),
+                                            }} source={require('../../Images/users/Rectangle12.png')} />
+                                          
+                                            
+                                </View>
+                               
+                                
+                             
+                              
                         </View>
                         : null}
                 </View>
@@ -169,7 +296,7 @@ const styles = StyleSheet.create({
     },
     tabsContainerStyle: { backgroundColor: '#511D73', borderColor: '#511D73', height: hp('5%', 812), marginLeft: '6%' },
     tabStyle: { backgroundColor: '#511D73', justifyContent: 'center', alignItems: 'center', borderColor: '#511D73', },
-    activeTabStyle: { backgroundColor: '#511D73', borderBottomColor: '#fff', borderBottomWidth: 5, borderTopColor: '#511D73' },
+    activeTabStyle: { backgroundColor: '#511D73', borderBottomColor: '#fff', borderBottomWidth: 1, borderTopColor: '#511D73' },
     tabTextStyle: { color: '#A47CC3', fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', width: 'auto', justifyContent: 'center', alignItems: 'center', },
     activeTabTextStyle: { color: '#fff', width: 'auto', fontSize: RFValue(24, 812), fontFamily: 'silka-bold-webfont', justifyContent: 'center', alignItems: 'center', },
 

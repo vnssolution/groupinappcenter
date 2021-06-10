@@ -4,7 +4,9 @@ import CssStyles from '../../CssStyles/CssStyles';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import  TextStyles from '../../CssStyles/TextStyles'
+import TextStyles from '../../CssStyles/TextStyles'
+import LinearGradient from 'react-native-linear-gradient'
+
 
 class WelcomeScreen extends React.Component {
     render() {
@@ -13,7 +15,79 @@ class WelcomeScreen extends React.Component {
                 <ImageBackground style={styles.welcomebackimgview}
                     resizeMode='stretch'
                     source={require('../../Images/bg.png')}>
-                    <View style={styles.groupimage}>
+                    <View style={styles.welcjustycenter}>
+                        <Text style={[TextStyles.h3whitecenter, { margin: '10%', fontSize: RFValue(20) }]}>You like to proceed as a admin or user</Text>
+                    </View>
+                    <View style={styles.Container}>
+                        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication")}>
+                            <LinearGradient
+                                colors={['rgba(255, 164, 164, 1)', 'rgba(255, 169, 169, 0.73)', 'rgba(255, 180, 180, 0)']}
+                                style={styles.linearGradient}
+                                start={{ x: 0, y: 0.5 }}
+                                end={{ x: 1, y: 0.5 }}>
+                                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'flex-start', alignSelf: 'flex-start', marginLeft: '4%', }}>
+
+
+
+                                    <Image source={require('../../Images/UI/Group82.png')} />
+                                    <View style={{ marginLeft: '8%' }}>
+
+                                        <Text style={[TextStyles.h4whitewof, { fontSize: RFValue(16), }]}>Admin</Text>
+
+                                        <Text numberOfLines={3} style={[TextStyles.h7lightwhitetext, { fontSize: RFValue(11), marginTop: '2%' }]}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                                    </View>
+                                </View>
+
+
+                            </LinearGradient>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.ContainerView}>
+                        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication")}>
+                            <LinearGradient
+                                colors={['rgba(151, 163, 251, 1)', 'rgba(151, 163, 251, 0.86)', 'rgba(151, 163, 251, 0)']}
+                                style={styles.linearGradient}
+                                start={{ x: 0, y: 0.5 }}
+                                end={{ x: 1, y: 0.5 }}
+                            >
+
+                                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'flex-start', alignSelf: 'flex-start', marginLeft: '5%', marginTop: '3%' }}>
+
+
+
+                                    <Image source={require('../../Images/UI/Group82.png')} />
+                                    <View style={{ marginLeft: '8%' }}>
+
+                                        <Text style={[TextStyles.h4whitewof, { fontSize: RFValue(16), }]}>User</Text>
+
+                                        <Text numberOfLines={3} style={[TextStyles.h4whitewof, { fontSize: RFValue(11), marginTop: '2%' }]}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                                    </View>
+                                </View>
+
+                            </LinearGradient>
+                        </TouchableOpacity>
+                    </View>
+                    {/* <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', }}>
+                        <View style={{ flexDirection: 'row', flex: 1, }}>
+                            <Image style={{
+                                resizeMode: 'contain', width: wp('4%', 812), top: -9,
+
+                            }} source={require('../../Images/Vectorgroup.png')} />
+                            <Text numberOfLines={1} style={TextStyles.h7lightwhitetext}>
+                                {" "}12{" "}Members
+                                </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', flex: 1, marginRight: '2%', justifyContent: 'space-between' }}>
+                            <Image style={{
+                                resizeMode: 'contain', width: wp('3%', 812), top: -9
+
+                            }} source={require('../../Images/star.png')} />
+                            <Text numberOfLines={1} style={TextStyles.h7lightwhitetext} >
+                                {" "}13{" "}Star{" "}Messaages
+                              </Text>
+                        </View>
+                    </View> */}
+                    {/* <View style={styles.groupimage}>
 
                         <View style={styles.welcjustycenter}>
                             <Image source={require('../../Images/logo.png')} style={CssStyles.loginlogostyle} />
@@ -44,11 +118,11 @@ class WelcomeScreen extends React.Component {
                         <View style={styles.welcjustycenter, { marginTop: '3%', marginLeft: '5%', marginRight: '5%', marginBottom: '3%', }}>
                             <Text style={TextStyles.ptextcenter}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Text>
                         </View>
-                        {/* <View style={CssStyles.splashvnsview}>
+                        <View style={CssStyles.splashvnsview}>
                             <Text style={CssStyles.poweredbytext}>Powered By</Text>
                             <Image source={require('../../Images/vnslogo.png')} style={CssStyles.vnsimagestyles} resizeMode="contain" />
-                        </View> */}
-                    </View>
+                        </View>
+                    </View> */}
                 </ImageBackground>
             </View>
 
@@ -68,6 +142,23 @@ const styles = StyleSheet.create({
     groupimage: { width: '100%', height: '100%', alignContent: 'center', alignItems: 'center', justifyContent: 'center', },
     useradminview: { flexDirection: 'row', alignContent: 'space-between', justifyContent: 'center', width: '100%' },
     useradmintext: { fontSize: RFValue(20, 812), fontFamily: 'silka-medium-webfont', color: '#fff', textAlign: 'center' },
-    h3whitecenter:{fontSize: RFValue(18, 812), fontFamily: 'silka-medium-webfont', color: '#fff', textAlign: 'center',},
-
+    h3whitecenter: { fontSize: RFValue(18, 812), fontFamily: 'silka-medium-webfont', color: '#fff', textAlign: 'center', },
+    Container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    ContainerView: {
+        marginTop: '5%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    linearGradient: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignContent: 'center',
+        borderRadius: 50,
+        height: 100,
+        width: 348,
+        elevation: 50
+    },
 })

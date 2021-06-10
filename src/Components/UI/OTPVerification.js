@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Text, View, TouchableOpacity } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
 import {
   CodeField,
   Cursor,
@@ -10,8 +8,7 @@ import {
 } from 'react-native-confirmation-code-field';
 
 import styles from './styles';
-import CssStyles from '../../CssStyles/CssStyles';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 
 export const OTPVerification = ({ value, onChangeText, cellCount, ...rest }) => {
   // const [value, setValue] = useState('');

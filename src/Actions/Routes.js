@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -71,7 +70,7 @@ class Routes extends React.Component {
           <Stack.Screen name="Modal" component ={Modal}/>
           <Stack.Screen name="chatscreen" component ={chatscreen}/>
           <Stack.Screen name="Dropdown" component ={DropdownScreen}/>
-          
+
          </Stack.Navigator>
       </NavigationContainer>
     );
