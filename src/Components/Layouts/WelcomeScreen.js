@@ -4,7 +4,7 @@ import CssStyles from '../../CssStyles/CssStyles';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import  TextStyles from '../../CssStyles/TextStyles'
+import  {widthScale,TextStyles} from '../../CssStyles/TextStyles'
 import LinearGradient from 'react-native-linear-gradient'
 
 
@@ -37,12 +37,12 @@ class WelcomeScreen extends React.Component {
 <View style={styles.generalseccolumn}>
                     <View style={{ flex: 0.4, }}></View>
                     <View style={{ flex: 0.6, justifyContent: 'center', }}>
-                        <Text numberOfLines={1} style={[TextStyles.h4whitewof,{fontSize: RFValue(16),}]}>Admin</Text>
+                        <Text numberOfLines={1} style={[TextStyles.h4whitewof,{fontSize: widthScale(16),}]}>Admin</Text>
                     </View>
                    
-                    <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'row', width: '100%', flex: 1, alignItems: 'center', }}>
+                    <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'row', width: '100%',alignItems: 'center', }}>
                         <View style={{ flex: 1,marginBottom:'8%' }}>
-                            <Text numberOfLines={3} style={[TextStyles.h4whitewof,{fontSize: RFValue(11)}]}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                            <Text numberOfLines={3} style={[TextStyles.h4whitewof,{fontSize: widthScale(11)}]}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                         </View>
 
                     </View>
@@ -71,12 +71,12 @@ class WelcomeScreen extends React.Component {
 <View style={styles.generalseccolumn}>
                     <View style={{ flex: 0.4, }}></View>
                     <View style={{ flex: 0.6, justifyContent: 'center', }}>
-                        <Text numberOfLines={1} style={[TextStyles.h4whitewof,{fontSize: RFValue(16),}]}>User</Text>
+                        <Text numberOfLines={1} style={[TextStyles.h4whitewof,{fontSize: widthScale(16),}]}>User</Text>
                     </View>
                    
-                    <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'row', width: '100%', flex: 1, alignItems: 'center', }}>
+                    <View style={{ justifyContent: 'center', flexDirection: 'row', width: '100%', flex: 1, alignItems: 'center', }}>
                         <View style={{ flex: 1,marginBottom:'8%' }}>
-                            <Text numberOfLines={3} style={[TextStyles.h4whitewof,{fontSize: RFValue(11)}]}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                            <Text numberOfLines={3} style={[TextStyles.h4whitewof,{fontSize: widthScale(11)}]}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                         </View>
 
                     </View>
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         height: 100,
         width: 348,
-        elevation:50,
+        // elevation:50,
         flexDirection: 'row',
         marginBottom: '1%', marginTop: '1%',
         marginLeft: '5%', marginRight: '3%',
