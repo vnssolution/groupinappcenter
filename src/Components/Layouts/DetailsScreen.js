@@ -216,12 +216,10 @@ class DetailsScreen extends Component {
         ToastAndroid.show(userRegFormres.data.message, ToastAndroid.LONG)
         // this.props.navigation.navigate("GroupInHome")
     }
-    if(userRegFormres.data.status ===400){
-      ToastAndroid.show(userRegFormres.data.error, ToastAndroid.LONG)
-    }
-    if (loginres.data.status === 404) {
-      ToastAndroid.show(loginres.data.error, ToastAndroid.LONG)
+    
   }
+  else{
+    ToastAndroid.show(userRegFormres, ToastAndroid.LONG)
   }
 
   }
