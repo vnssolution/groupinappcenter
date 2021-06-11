@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, Animated, Alert, ImageBackground, Image, TextInput, ToastAndroid, KeyboardAvoidingView ,Dimensions} from 'react-native';
+
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Input } from 'react-native-elements';
-import TextStyles from '../../CssStyles/TextStyles';
+import { widthScale,TextStyles} from '../../CssStyles/TextStyles';
 
 export default class SignInScreen extends Component {
     constructor(props) {
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
     welcjustycenter: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', },
     textstylewelscrn: { fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', color: '#D9C9E4', textAlign: 'center', },
     // groupimage: { width: '100%', height: '100%', marginTop: '10%' },
-    groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginLeft:'10%'},
+    groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginLeft:widthScale(60)},
     textstyle: { fontSize: RFValue(20, 812), fontFamily: 'silka-medium-webfont', color: '#fff', textAlign: 'center' },
     authtextstyle: { fontSize: RFValue(18, 812), fontFamily: 'silka-medium-webfont', color: '#fff' },
     h1whitecenterbold:{ fontSize: RFValue(24, 812), fontFamily: 'silka-medium-webfont', color: '#fff',textAlign:'center', },

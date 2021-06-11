@@ -286,22 +286,22 @@ class BroadcastGroupinfoScreen extends Component {
                         <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'flex-start', }}
                         >
                             <Text
-                                numberOfLines={1} style={[TextStyles.h3white, { flex: 0.4, width: wp('60%', 812) }]}
+                                numberOfLines={1} style={[TextStyles.h3white, { flex: 0.5, width: wp('60%', 812) }]}
                             >
                                 {this.state.navigation.tittle}</Text>
                             <Text
-                                style={[TextStyles.h5blackcenter, { color: '#fff' }]}
+                                style={[TextStyles.h5blackcenter, { color: '#fff',marginTop:'2%' }]}
                             >{this.state.navigation.grouptext}</Text>
                         </View>
-                        <TouchableOpacity style={{ padding: '2%' }}>
+                        <TouchableOpacity style={{ margin:'5%' }}>
                             <Image style={{
-                                resizeMode: 'contain', width: wp('7%', 812),
-                                height: hp('6%', 812),
+                                resizeMode: 'contain', width: wp('5%', 812),
+                                height: hp('3%', 812),
                             }} source={require('../../Images/edit.png')} />
                         </TouchableOpacity>
                     </View>
                 </ImageBackground>
-                <View style={styles.cardview}>
+                <View style={[styles.cardview,{marginTop:'5%'}]}>
                     <Text style={TextStyles.h4purpletext}>
                         Add Group Description
                 </Text>
@@ -323,7 +323,7 @@ class BroadcastGroupinfoScreen extends Component {
                 </View>
                 <View style={styles.cardview}>
                     <Text style={TextStyles.h4purpletext}>
-                        Add Member in Group
+                        Add Member in Group 
                 </Text>
                 </View>
                 <View style={styles.cardview}>

@@ -6,7 +6,6 @@ import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import OTPVerification from '../UI/OTPVerification';
 import TextStyles from '../../CssStyles/TextStyles';
-import  Modal  from '../UI/Modal';
 import Loader from '../UI/Loader';
 
 // const CELL_COUNT = 5;
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
   container: { width: '100%', height: '100%', flex: 1, },
   root: { padding: 20, minHeight: 300 },
   resendtext: { color: '#fff', fontSize: RFValue(20, 812), textAlign: 'center', fontFamily: 'silka-medium-webfont', },
-  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginLeft: '10%' },
+  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginLeft: '15%' },
   otptext: { fontSize: RFValue(20, 812), fontFamily: 'silka-medium-webfont', color: '#fff', textAlign: 'center' },
   subcontainerviewofview1: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: '5%', },
   badgeicon: {

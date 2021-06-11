@@ -144,21 +144,21 @@ class CreateGroupScreen extends React.Component {
           <View style={styles.mainview}>
           <Image source={require('../../Images/message.png')}/>
 
-            <ImageBackground source={require('../../Images/ellipse8.png')} style={{
+            {/* <ImageBackground source={require('../../Images/ellipse8.png')} style={{
               resizeMode: 'contain', alignItems: 'center', justifyContent: 'center', width: 100,
               height: 100,
             }}>
                               <Image source={require('../../Images/personvector.png')}  style={{  top: 18,}}/>
-
-              {/* <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont' }}>
-                <Text style={{ color: 'white', fontSize: RFValue(14, 812), fontFamily: 'silka-medium-webfont' }}>Add Group</Text>
-                <Text style={{ color: 'white', fontSize: RFValue(14, 812), fontFamily: 'silka-medium-webfont' }}>Icon</Text>
-              </View> */}
               <ImageBackground source={require('../../Images/Ellipse9.png')} style={styles.badge}>
                 <Image source={require('../../Images/camera3x.png')} style={styles.badgeimage} />
               </ImageBackground>
-            </ImageBackground>
-            <Image source={require('../../Images/messagevector.png')}/>
+            </ImageBackground> */}
+            <ImageBackground source={require('../../Images/personiconvector.png')} style={{
+              resizeMode: 'contain', alignItems: 'center', justifyContent: 'center',width:wp("25%"),height:hp("13%")
+            }}>
+ <Image source={require('../../Images/cameraframe.png')} style={styles.badge}/>
+</ImageBackground>
+            <Image source={require('../../Images/njcfdn.png')}/>
 
           </View>
 
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
      left: 40,
-    // top: 24,
+     top: 26,
   },
   badgeimage: {
     width: 15,

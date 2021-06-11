@@ -5,7 +5,7 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
 import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import TextStyles, { widthScale } from '../../CssStyles/TextStyles'
+import TextStyles, { widthScale,SCRBG } from '../../CssStyles/TextStyles'
 
 
 
@@ -768,14 +768,14 @@ export default class GroupInHome extends Component {
                 }]}
                 // onLongPress={()=>this.setState({onLongPress:true})}
                 onPress={() => {
-                    this.props.navigation.navigate("GeneralChatScreen", {
+                    this.props.navigation.navigate("ChatScreen", {
                         itemId: item.id,
                         tittle: item.tittle,
                         grouptext: item.grouptext,
                         otherParam: 'true',
                         uri: item.uri,
                         admin: item.admin,
-                        chatscreen: "adminscreen"
+                        chatscreen: "generalscreen"
                     });
                 }}>
                 <View style={styles.generalfirstcolum}>
@@ -982,7 +982,7 @@ export default class GroupInHome extends Component {
                     </View>
 
                     <SegmentedControlTab
-                        values={['Admin', 'General', 'Broadcast',]}
+                        values={['Admin', 'General', 'Broadcast']}
                         selectedIndex={customStyleIndex}
                         // badges={count_val}
                         // tabBadgeStyle={styles.tabBadgeStyle}
@@ -1004,9 +1004,8 @@ export default class GroupInHome extends Component {
                 </ImageBackground>
 
 
-                <View style={{ flex: 1, borderTopStartRadius: 30, borderTopWidth: 40, borderColor: '#FAF4FF', width: '100%', height: '100%', backgroundColor: '#FAF4FF' }}>
-                    {customStyleIndex === 0 && this.state.admingrouplist.length > 0
-                        ?
+                <View style={{ flex: 1, borderTopStartRadius: 30, borderTopWidth: 40, borderColor: SCRBG, width: '100%', height: '100%', backgroundColor: SCRBG }}>
+                {customStyleIndex === 0 && this.state.admingrouplist.length > 0  ?
                         <FlatList
                             data={formatrowdata(this.state.admingrouplist)}
                             style={styles.admincontainer}
@@ -1018,20 +1017,30 @@ export default class GroupInHome extends Component {
                     {/* <ScrollView> */}
                     {customStyleIndex === 0 && this.state.admingrouplist.length == 0 ?
 
-                        <View style={{ flex: 1, width: '100%', height: '100%', backgroundColor: '#FAF4FF', alignItems: 'center', paddingLeft: '5%', paddingRight: '5%' }}>
+                        <View style={{ flex: 1, width: '100%', height: '100%', backgroundColor: SCRBG, alignItems: 'center', paddingLeft: '5%', paddingRight: '5%',}}>
                             <Image
                                 resizeMode='center'
                                 style={{
-                                    resizeMode: 'contain', width: wp('100%', 812),
-                                    height: hp('30%', 812)
-                                }} source={require('../../Images/group3x.png')} />
-                            <View style={{ marginBottom: '3%' }}>
-                                <Text style={TextStyles.h1blackbold}>Create Your Group</Text>
+                                    resizeMode: 'contain', width: wp('60%', 812),
+                                    height: hp('20%', 812)
+                                }} source={require('../../Images/Frameicon.png')} />
+                                {/* <View style={{ flexDirection:'row'}}>
+                                    <View style={{left:'8%',marginTop:'5%'}}>
+                                          <ImageBackground source={require('../../Images/message.png')} style={{width:wp("15%"),height:hp("6%")}}/>
+                                         </View> 
+                                          <Image source={require('../../Images/HomeFrame.png')} style={{width:wp("30%"),height:hp("15%")}}/>
+                                          <View style={{right:'8%',marginTop:'5%'}}>
+                                          <ImageBackground source={require('../../Images/messagevector.png')} style={{width:wp("12%"),height:hp("6%")}}/>
+</View>
+</View> */}
+
+                            <View style={{ margin: '3%' }}>
+                                <Text style={[TextStyles.h1blackbold]}>Create Your Group</Text>
                             </View>
                             <Text style={TextStyles.h4whitegreycenter}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Text>
                             <View style={CssStyles.buttonview}>
                                 <TouchableOpacity style={CssStyles.button} onPress={() => this.showcreategroupfn(true)}>
-                                    <Text style={CssStyles.buttontext}>CREATE GROUP</Text>
+                                    <Text style={CssStyles.buttontext}>Create Group</Text>
                                     {/* <Image source={require('../../Images/rightarrow.png')} style={CssStyles.rightarrowstyle} /> */}
                                 </TouchableOpacity>
                             </View>
@@ -1170,7 +1179,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     //     borderRadius: 8,
-                                                        padding: 6
+                                                        margin: '8%'
                                                   
                                                 },
 
@@ -1185,7 +1194,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1199,7 +1208,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1213,7 +1222,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1228,7 +1237,7 @@ export default class GroupInHome extends Component {
                                                     //     ? '#f2f2f2'
                                                     //     : 'transparent',
                                                     // borderRadius: 8,
-                                                    padding: 6
+                                                    margin: '8%'
                                                 },
 
                                             ]}
@@ -1333,7 +1342,7 @@ export default class GroupInHome extends Component {
                                         justifyContent: 'center',
                                          alignContent: 'center',
                                          alignItems: 'center',
-                                         margin:'3%'
+                                         margin:'5%'
                                     }}>
                                         <Text style={[TextStyles.h4black, { textAlign: 'center', }]}>You can upload the contact list (.csv, .xls, .vvf) of group members </Text>
                                     </View>
@@ -1406,7 +1415,7 @@ const styles = StyleSheet.create({
 
     // admin container styles
     admincontainer: { flex: 1, backgroundColor: 'transparent', marginTop: '-6%', paddingBottom: '2%', },
-    admingrid: { elevation: 10, borderRadius: 10, flexDirection: 'row', justifyContent: 'center', alignContent: 'center', alignItems: 'center', height: hp('12%', 812), backgroundColor: '#FAF4FF', marginLeft: '3%', marginRight: '3%', marginTop: '3%', marginBottom: '1%', },
+    admingrid: { elevation: 10, borderRadius: 10, flexDirection: 'row', justifyContent: 'center', alignContent: 'center', alignItems: 'center', height: hp('12%', 812), backgroundColor: SCRBG, marginLeft: '3%', marginRight: '3%', marginTop: '3%', marginBottom: '1%', },
     adminfirstcolum: { flex: 1, alignItems: 'center', justifyContent: 'center', },
     boradcastfirstcolum: { flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', marginLeft: '1%', marginRight: '1%' },
     adminseccolumn: {

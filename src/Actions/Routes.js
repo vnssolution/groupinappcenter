@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,7 +9,6 @@ import SettingsScreen from '../Components/Menu/SettingsScreen';
 import GroupInHome from '../Components/Layouts/GroupInHome';
 import CreateGroup from '../Components/FabGroup/CreateGroup';
 import SearchScreen from '../Components/Layouts/SearchScreen';
-import GeneralChatScreen from '../Components/Layouts/GeneralChatScreen';
 import CreateGroupScreen from '../Components/FabGroup/createGroupScreen';
 import SignUpScreen from '../Components/Layouts/SignUpScreen';
 import WelcomeScreen from '../Components/Layouts/WelcomeScreen';
@@ -55,7 +53,6 @@ class Routes extends React.Component {
           <Stack.Screen name ="GroupInHome" component={GroupInHome}/>
           <Stack.Screen name="CreateGroup" component={CreateGroup}/>
           <Stack.Screen name="Search" component={SearchScreen}/>
-          <Stack.Screen name="GeneralChatScreen" component ={GeneralChatScreen}/>
           <Stack.Screen name="CreateGroupScreen" component ={CreateGroupScreen}/>
           <Stack.Screen name="SignUpScreen" component ={SignUpScreen}/>
           <Stack.Screen name="SignInScreen" component ={SignInScreen}/>
@@ -71,7 +68,7 @@ class Routes extends React.Component {
           <Stack.Screen name="Modal" component ={Modal}/>
           <Stack.Screen name="chatscreen" component ={chatscreen}/>
           <Stack.Screen name="Dropdown" component ={DropdownScreen}/>
-          
+
          </Stack.Navigator>
       </NavigationContainer>
     );
