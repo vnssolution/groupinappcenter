@@ -20,18 +20,12 @@ class DropdownScreen extends Component {
         LogBox.ignoreAllLogs()
     }
     render() {
-        const { data ,value,itemclr,font,itemTextStyle,style,dropdownPosition,} = this.props
+        const { data ,value,itemclr,font,itemTextStyle,style,dropdownPosition,onChangeText,pickerStyle} = this.props
         return (
             <View style={styles.container}>
                 <Dropdown
                     useNativeDriver={false}
-                    pickerStyle={{
-                        borderRadius: 10,
-                        alignItems: 'center',
-                        right: 0,
-                        width: widthScale(300),
-                         marginLeft: widthScale(5), marginRight: widthScale(5)
-                    }}
+                    pickerStyle={pickerStyle}
                     animationDuration={1}
                     rippleDuration={1}
                     value={value}
@@ -40,6 +34,7 @@ class DropdownScreen extends Component {
                     dropdownPosition={dropdownPosition}
                     style={style}
                     itemTextStyle={itemTextStyle}
+                    onChangeText={onChangeText}
                     inputContainerStyle={{ borderBottomColor: 'transparent',  width: '100%', }}
                 />
                 
@@ -58,14 +53,7 @@ const styles = StyleSheet.create({
         marginRight: '5%',
         width: '100%',
     },
-    linearGradient: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 50,
-        height: 100,
-        width: 348,
-        elevation: 50
-    },
+   
 })
 
 export default DropdownScreen;
