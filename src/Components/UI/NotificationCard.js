@@ -25,16 +25,16 @@ class NotificationCard extends React.Component {
             <View>
                 <View style={{ marginTop: '4%' }}>
                     <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>Notification tone</Text>
-                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Lorem ipsum</Text>
+                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(14) }}>Lorem ipsum</Text>
                 </View>
                 <View style={{ borderBottomWidth: 0.2, borderBottomColor: 'black', marginTop: '3%' }} />
                 <View style={{ flexDirection: 'row', marginTop: '3%' }}>
                     <View style={{ marginTop: '2%' }}>
                         <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>Vibrate</Text>
                         {this.state.switchValue ?
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Yes</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(14) }}>Yes</Text>
                             :
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>No</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(14) }}>No</Text>
                         }
                     </View>
                     <View style={styles.toggleview}>
@@ -49,9 +49,9 @@ class NotificationCard extends React.Component {
                     <View style={{ marginTop: '2%' }}>
                         <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>Pop up Notifications</Text>
                         {this.state.valueSwitch ?
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Yes</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(14) }}>Yes</Text>
                             :
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>No</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(14) }}>No</Text>
                         }
                     </View>
                     <View style={styles.toggleview}>
@@ -65,7 +65,7 @@ class NotificationCard extends React.Component {
 
                 <View style={{ marginTop: '4%' }}>
                     <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>High Priority Notifications</Text>
-                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Show Preview on top of the screen</Text>
+                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(14) }}>Show Preview on top of the screen</Text>
                 </View>
             </View>
 

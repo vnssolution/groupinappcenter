@@ -38,7 +38,7 @@ class NotificationScreen extends React.Component {
                     </TouchableOpacity>
                     <View style={styles.groupinviewstyle}>
                         <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'flex-start', margin: '2%' }}>
-                            <Text style={{ color: 'white', fontSize: widthScale(20), fontFamily: 'silka-medium-webfont',marginLeft:'5%',justifyContent: 'center', alignContent: 'center', }}>Notifications</Text>
+                            <Text style={{ color: 'white', fontSize: widthScale(19), fontFamily: 'silka-medium-webfont',marginLeft:'5%',justifyContent: 'center', alignContent: 'center', }}>Notifications</Text>
                             {/* <Text style={{ color: 'white', fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont' }}>35 contacts uploaded</Text> */}
                         </View>
                     </View>
