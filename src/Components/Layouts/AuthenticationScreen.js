@@ -18,6 +18,7 @@ export default class AuthenticationScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      navigation: this.props.route.params,
       phonenumber: '',
       username: "",
       password: "",
@@ -33,7 +34,7 @@ export default class AuthenticationScreen extends Component {
 
     else {
       this.props.navigation.navigate("InputOtp", {
-        signin: "signin"
+        sign: "signin"
       });
     }
   }
@@ -141,7 +142,9 @@ export default class AuthenticationScreen extends Component {
             </View>
             <View style={styles.createview}>
               <Text style={TextStyles.h4whitecenter}>Don't have an account?{'  '}</Text>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignInScreen",)}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignInScreen",{ 
+                usertype:this.state.navigation.usertype
+                })}>
                 <Text style={TextStyles.h4whitecenter}>Create</Text>
                 <View style={styles.lastborder} />
               </TouchableOpacity>

@@ -19,7 +19,7 @@ class WelcomeScreen extends React.Component {
                             <Text style={[TextStyles.h3whitecenter,{margin:'10%'}]}>You like to proceed as a admin or user</Text>
                         </View>
                         <View>
-                        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication")}>
+                        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication",{usertype:"Admin"})}>
         <LinearGradient
           colors={['rgba(255, 164, 164, 1)', 'rgba(255, 169, 169, 0.73)', 'rgba(255, 180, 180, 0)' ]}
           style={styles.linearGradient}
@@ -52,7 +52,7 @@ class WelcomeScreen extends React.Component {
         </TouchableOpacity>
         </View>
         <View style={styles.ContainerView}>
-        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication")}>
+        <TouchableOpacity style={styles.welcjustycenter} onPress={() => this.props.navigation.navigate("Authentication",{usertype:"User"})}>
         <LinearGradient
           colors={['rgba(151, 163, 251, 1)', 'rgba(151, 163, 251, 0.86)', 'rgba(151, 163, 251, 0)' ]}
           style={styles.linearGradient}

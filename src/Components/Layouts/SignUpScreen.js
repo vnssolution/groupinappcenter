@@ -19,19 +19,23 @@ export default class SignUpScreen extends Component {
 
     }
   }
+  componentDidMount(){
+    
+  }
   validatephone(username, password, confirmpassword) {
     if (username == "" || username == undefined || username == null) {
       ToastAndroid.show("please enter username", ToastAndroid.LONG)
     }
     else if (password == "" || password == undefined || password == null) {
       ToastAndroid.show("please enter password", ToastAndroid.LONG)
-    } else if (confirmpassword == "" || confirmpassword == undefined || confirmpassword == null) {
+    } else if ((confirmpassword == "" || confirmpassword == undefined || confirmpassword == null)&&(password===confirmpassword)) {
       ToastAndroid.show("please enter confirmpassword matches with password ", ToastAndroid.LONG)
     }
-
     else {
-
-      this.props.navigation.navigate("DetailsScreen",)
+      this.props.navigation.navigate("DetailsScreen",{
+        username:this.state.username,
+        password:this.state.password
+      })
     }
   }
   renderCustomIconA = () => {

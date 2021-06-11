@@ -7,6 +7,9 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import OTPVerification from '../UI/OTPVerification';
 import TextStyles from '../../CssStyles/TextStyles';
 import Loader from '../UI/Loader';
+import { MOBVALDIATE } from '../../ApiManager/ApiFetch';
+import AsyncStorageContants from '../../ApiManager/Store';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // const CELL_COUNT = 5;
 export default class InputOtpScreen extends Component {
@@ -15,13 +18,17 @@ export default class InputOtpScreen extends Component {
     this.modalRef = React.createRef();
     this.state = {
       navigation: this.props.route.params,
-      otpvalue: '1234',
+      otpvalue: "",
       isLoading: false,
+      phonenumber: "",
+      email: "",
 
     }
   }
   componentDidMount() {
     console.log(this.state.navigation)
+    this.setState({ otpvalue: this.state.navigation.otpvalue, })
+
 
   }
 
@@ -29,12 +36,67 @@ export default class InputOtpScreen extends Component {
   _onvalidatecode(isvalid) {
     this.setState({ otpvalue: isvalid })
   }
-  validinput(otpval,) {
-    this.setState({
-      isLoading: true
-  })
-    // this.refs.codevalue.clear()
-    if (otpval == "1234" || otpval == 1234) {
+
+  setlogindetails = async (token,phonenum,useridnum) => {
+    try {
+      console.log(useridnum+"=="+phonenum+"======"+token)
+      await AsyncStorage.setItem("token", token)
+      await AsyncStorage.setItem("phone", phonenum)
+      await AsyncStorage.setItem("useridval",useridnum)
+    } catch (e) {
+      // save error
+      console.log(e)
+    }
+
+    console.log('Done.')
+  }
+  async validinput(otpval,) {
+    this.setState({ isLoading: true })
+if( this.state.navigation.sign =="signup"){
+    let valreq = {
+      mobileNumber:  this.state.navigation.phonenumber,
+      mblNumOtp: otpval
+    }
+    let valres = await MOBVALDIATE(valreq)
+    // console.log("validation req =="+JSON.stringify(valreq))
+    if (((valres || {}).data || {}) !== undefined) {
+      // console.log("validation res =="+JSON.stringify(valres.data))
+      if (valres.data.status === false) {
+        this.setState({
+          isLoading: false, otpval: ""
+        })
+        ToastAndroid.show(valres.data.message, ToastAndroid.LONG)
+      }
+      if (valres.data.status === true) {
+        ToastAndroid.show(valres.data.message, ToastAndroid.LONG)
+        console.log("validation req =="+JSON.stringify( valres.data.token))
+        this.setlogindetails(
+          valres.data.token,
+          this.state.navigation.phonenumber,
+          this.state.navigation.userid
+        )
+        Keyboard.dismiss()
+        {
+          this.state.navigation.sign ?
+
+            this.props.navigation.navigate("SignUpScreen", {
+              token: valres.data.token,
+            })
+            :
+            this.props.navigation.navigate("GroupInHome", {
+              token: valres.data.token,
+            })
+        }
+        this.setState({
+          isLoading: false
+        })
+        
+
+      }
+    }
+  }
+
+   else if (otpval == "1234" || otpval == 1234) {
       Keyboard.dismiss()
       {
         this.state.navigation.sign ?
@@ -51,18 +113,18 @@ export default class InputOtpScreen extends Component {
       this.setState({
         isLoading: false
     })
-      ToastAndroid.show("Enter valid otp 1234", ToastAndroid.SHORT)
+      ToastAndroid.show("Enter valid otp", ToastAndroid.SHORT)
       this.setState({ otpval: "" })
-     
+
 
     }
   }
   renderLoader = () => {
     return (
-        <Loader
-            loading={this.state.isLoading} />
+      <Loader
+        loading={this.state.isLoading} />
     );
-};
+  };
 
   render() {
     return (

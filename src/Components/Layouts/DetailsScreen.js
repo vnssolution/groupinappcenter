@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ScrollView, Text, View, ImageBackground, Image, KeyboardAvoidingView, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, ImageBackground, Image, KeyboardAvoidingView, TouchableOpacity, Dimensions, Alert, ToastAndroid } from 'react-native';
 import CssStyles from '../../CssStyles/CssStyles';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
@@ -8,13 +8,15 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 //   GroupDropdown,
 //   MultiselectDropdown,
 // } from 'sharingan-rn-modal-dropdown';
-import { TextStyles, widthScale } from '../../CssStyles/TextStyles';
+import { heightScale, TextStyles, widthScale } from '../../CssStyles/TextStyles';
 
 import { Component } from 'react';
-import { CategoryList } from '../../ApiManager/ApiFetch'
+import { CategoryList, CityListApi, StateListApi,CityListApiBYSTATEID,INSERTPROFILE } from '../../ApiManager/ApiFetch'
 import { CATEGORIES_ENDPOINTS } from '../../ApiManager/ApiEndpoints'
 import DropdownScreen from '../UI/DropdownScreen';
 import { Dropdown } from 'react-native-material-dropdown';
+import AsyncStorageContants from '../../ApiManager/Store';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const categorydata = [
   {
@@ -91,29 +93,136 @@ class DetailsScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      CategoryList: []
+      CategoryList: [],
+      StateList:[],
+      CityList:[],
+      stateidvalue:"",
+      categoreyidvalue:"",
+      cityidvalue:"",
+      cityvalue:"City",
+      navigation: this.props.route.params,
     }
   }
   componentDidMount() {
     this.categoryListApi()
+    this.getStateListAPI()
+   this.getCityListAPI()
   }
+
+
 
   async categoryListApi() {
-
     let categoryres = await CategoryList()
     if (((categoryres || {}).data || {}) !== undefined) {
-
+      console.log("categoryListApi res" + JSON.stringify(categoryres.data))
       this.setState({ CategoryList: categoryres.data })
-      console.log("category res" + JSON.stringify(this.state.CategoryList))
+      
     }
   }
-  categorylistdata(){
-    return(
+  categorylistdata() {
+    if(this.state.CategoryList!==undefined && this.state.CategoryList.length>0){
+    return (
       this.state.CategoryList.map(item => ({
-        value: item.categoryName,
+        value: item.categoryName,id:item.categoryId
+      }))
+    )
+    }
+    else{
+      <View>
+        <Text>No Data Found</Text>
+      </View>
+    }
+  }
+  async getStateListAPI() {
+
+    const tokenval = await AsyncStorage.getItem("token")
+    let stateres = await StateListApi(tokenval)
+    if (((stateres || {}).data || {}) !== undefined) {
+
+      this.setState({ StateList: stateres.data })
+      console.log("state res" + JSON.stringify(this.state.StateList))
+    }
+  }
+  stateListData() {
+    if(this.state.StateList!==undefined&&this.state.StateList.length>0){
+    return (
+      this.state.StateList.map(item => ({
+        value: item.stateName,id:item.stateId
+      }))
+    )
+    }
+  }
+  async getCityListAPI(id) {
+    const tokenval = await AsyncStorage.getItem("token")
+    console.log("getCityListAPI token =="+tokenval)
+    console.log(" getCityListAPI stateidvalue ==="+id+"CityID ==="+this.state.cityidvalue)
+    if(id!=="" &&this.state.stateidvalue!==""){
+      let Cityres = await CityListApiBYSTATEID(tokenval,id)
+      if (((Cityres || {}).data || {}) !== undefined) {
+        if(Cityres.data.length>0){
+          this.setState({ CityList: Cityres.data })
+        }
+        else{
+          ToastAndroid.show("Empty City data", ToastAndroid.LONG)
+          this.setState({cityvalue:"City",})
+     
+        }
+        console.log("getCityListAPI res  if" + JSON.stringify(this.state.CityList))
+      }
+  }
+  else{
+    let Cityres = await CityListApi(tokenval)
+    if (((Cityres || {}).data || {}) !== undefined) {
+        this.setState({ CityList: Cityres.data })
+        this.setState({cityvalue:"City"})
+      console.log("getCityListAPI res  else" + JSON.stringify(Cityres.data))
+    }
+  }
+  }
+  cityListData() {
+    if(this.state.CityList!==undefined&&this.state.CityList.length>0){
+    return (
+      this.state.CityList.map(item => ({
+        value: item.cityName,id:item.cityId
       }))
     )
   }
+  }
+
+  async userRegForm(){
+    const tokenval = await AsyncStorage.getItem("token")
+    const phonum = await AsyncStorage.getItem("phone")
+    const userval =await AsyncStorage.getItem("useridval")
+    console.log("userid"+userval)
+
+    let userRegFormreq= {
+      userId:userval,
+      mobileNumber: phonum,
+      displayName:this.state.navigation.username,
+      cityId: this.state.cityidvalue,
+      stateId: this.state.stateidvalue,
+      categoryId: this.state.categoreyidvalue,
+      password:this.state.navigation.password
+      
+  }
+  console.log("userRegFormres req =="+JSON.stringify(tokenval))
+
+  console.log("userRegFormres req =="+JSON.stringify(userRegFormreq))
+
+  let userRegFormres = await INSERTPROFILE(userRegFormreq,tokenval,userval)
+  if (((userRegFormres || {}).data || {}) !== undefined) {
+    console.log("userRegFormres res =="+JSON.stringify(userRegFormres.data))
+    if(userRegFormres.data.status ===true){
+        ToastAndroid.show(userRegFormres.data.message, ToastAndroid.LONG)
+        this.props.navigation.navigate("GroupInHome")
+    }
+  }
+  else{
+    ToastAndroid.show(userRegFormres, ToastAndroid.LONG)
+  }
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -139,28 +248,38 @@ class DetailsScreen extends Component {
 
 
             <View style={styles.groupimageview}>
-              <Text style={[TextStyles.h3whitecenter,{justifyContent:'center',alignSelf:'center',alignContent:'center'}]}>Fill your details</Text>
+              <Text style={[TextStyles.h3whitecenter, { justifyContent: 'center', alignSelf: 'center', alignContent: 'center' }]}>Fill your details</Text>
             </View>
           </View>
           <View style={{ marginLeft: '5%', marginRight: '5%', marginBottom: '5%' }}>
             <Text style={TextStyles.ptextcenter}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Text>
           </View>
-
-
           <ScrollView>
             <View style={styles.dropdownContainer}>
               <Image
                 style={styles.mapIcon}
                 source={require('../../Images/category.png')}
               />
-                <DropdownScreen
-                  dropdownPosition={-3}
-                  data={this.categorylistdata()}
-                  value={"Category"}
-                  style={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont', color: 'rgba(173, 122, 204, 1)' }}
-                  itemTextStyle={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont' }}
-                  inputContainerStyle={{ borderBottomColor: 'transparent', width: '100%', }}
-                />
+              <DropdownScreen
+               pickerStyle={{
+                borderRadius: 10,
+                alignItems: 'center',
+                right: 0,
+                width: widthScale(300),
+                 marginLeft: widthScale(5), marginRight: widthScale(5)
+            }}
+                dropdownPosition={-4}
+                data={this.categorylistdata()}
+                value={"Category"}
+                style={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont', color: 'rgba(173, 122, 204, 1)' }}
+                itemTextStyle={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont' }}
+                inputContainerStyle={{ borderBottomColor: 'transparent', width: '100%', }}
+                onChangeText={(value,id)=>{
+                  this.setState({categoreyidvalue:id})
+                  console.log("value == "+JSON.stringify(id))
+                }}
+              
+              />
               <Image
                 style={styles.dropdownicon}
                 source={require('../../Images/dropdown3x.png')}
@@ -173,10 +292,23 @@ class DetailsScreen extends Component {
                 source={require('../../Images/vector8.png')}
               />
               <DropdownScreen
-                data={statedata}
+               pickerStyle={{
+                borderRadius: 10,
+                alignItems: 'center',
+                right: 0,
+                width: widthScale(300),
+                 marginLeft: widthScale(5), marginRight: widthScale(5)
+            }}
+                dropdownPosition={-3}
+                data={this.stateListData()}
                 value={"State"}
                 style={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont', color: 'rgba(173, 122, 204, 1)' }}
                 itemTextStyle={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont' }}
+                onChangeText={(value,id)=>{
+                  this.setState({stateidvalue:id})
+                  this.getCityListAPI(id)
+                  console.log("value == "+JSON.stringify(id))
+                }}
               />
               <Image
                 style={styles.dropdownicon}
@@ -189,13 +321,24 @@ class DetailsScreen extends Component {
                 style={styles.mapIcon}
                 source={require('../../Images/vector8.png')}
               />
-
-
               <DropdownScreen
-                data={CityData}
-                value={"City"}
+               pickerStyle={{
+                borderRadius: 10,
+                width: widthScale(300),
+                 marginLeft: widthScale(5), marginRight: widthScale(5),
+                 height:heightScale(200)
+            }}
+                dropdownPosition={-5}
+                data={this.cityListData()}
+                value={this.state.cityvalue}
                 style={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont', color: 'rgba(173, 122, 204, 1)' }}
                 itemTextStyle={{ fontSize: widthScale(16), fontFamily: 'silka-medium-webfont' }}
+                onChangeText={(value,id)=>{
+                  this.setState({cityvalue:value})
+                  this.setState({cityidvalue:id})
+                  console.log("value == "+JSON.stringify(id))
+                }}
+                
               />
               <Image
                 style={styles.dropdownicon}
@@ -204,7 +347,7 @@ class DetailsScreen extends Component {
             </View>
             <View style={styles.lastborder} />
             <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: '10%', padding: '3%' }}>
-              <TouchableOpacity style={CssStyles.arrowbutton} onPress={() => this.props.navigation.navigate("GroupInHome")}>
+              <TouchableOpacity style={CssStyles.arrowbutton} onPress={() => this.userRegForm()}>
                 {/* <Text style={CssStyles.submittext}>Next</Text> */}
                 <Image source={require('../../Images/rightarrow.png')} style={CssStyles.rightarrowstyle} />
               </TouchableOpacity>
@@ -246,9 +389,9 @@ const styles = StyleSheet.create({
     width: '100%', height: '100%'
   },
   welcjustycenter: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', },
-  textstylewelscrn: { fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', color: '#D9C9E4', textAlign: 'center'},
+  textstylewelscrn: { fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont', color: '#D9C9E4', textAlign: 'center' },
   groupimage: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', },
-  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center',marginLeft:'18%' },
+  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginLeft: '18%' },
   textstyle: { fontSize: RFValue(20, 812), fontFamily: 'silka-bold-webfont', color: '#fff', textAlign: 'center' },
   authtextstyle: { fontSize: RFValue(18, 812), color: '#fff' },
   mapIcon: {
