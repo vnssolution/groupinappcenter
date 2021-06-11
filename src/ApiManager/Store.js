@@ -1,0 +1,16 @@
+const AsyncStorageContants = {
+    TOKEN: "@TOKEN",
+    USERID: '@USERID',
+    EMAILID: '@EMAILID',
+    PROJECTD: '@PROJECTD',
+    UNITID: '@UNITID',
+    DATE_OF_BIRTH:"@DATE_OF_BIRTH",
+    PHONE:"@PHONE",
+    USERNAME:"@UserName",
+    NAME: "@NAME",
+    UNITASSIGN: "@UNITASSIGN",
+    PROFILEURL:"@PROFILEURL",
+    SIGNUPTOKEN: "@SIGNUPTOKEN",
+    DEFAULT_PROPERTY:"@DEFAULT_PROPERTY"
+}
+export default AsyncStorageContants

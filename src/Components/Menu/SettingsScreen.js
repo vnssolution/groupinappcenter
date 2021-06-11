@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import TextStyles from '../../CssStyles/TextStyles';
+import  {widthScale,TextStyles} from '../../CssStyles/TextStyles'
 
 
 class SettingsScreen extends React.Component {
@@ -46,7 +46,7 @@ class SettingsScreen extends React.Component {
                     <Text numberOfLines={2} style={styles.h5white}>Lorem Ipsum is simply dummy text of the printing and type setting industry. </Text>
                   </View>
                   <View style={{ padding: '1%', flex: 1, }}>
-                    <Text style={TextStyles.h5white}>35 Contacts</Text>
+                    <Text style={styles.h5white}>35 Contacts</Text>
                   </View>
                   <View style={{ flexDirection: 'row', paddingTop: '2%', paddingBottom: '1%' }}>
                     <Image style={{
@@ -123,7 +123,7 @@ class SettingsScreen extends React.Component {
             <TouchableOpacity style={{ flexDirection: 'row', marginLeft: '5%', marginRight: '5%' }}>
               <Image style={{
                 resizeMode: 'contain', width: wp('10%',812),
-                 height: hp('10%',812),
+                 height: hp('10%',812), margin: '1%'
               }} source={require('../../Images/help.png')} />
               <View style={{ justifyContent: 'center', alignItems: 'flex-start', alignContent: 'center', marginLeft: '2%' }}>
                 <Text  numberOfLines={1} style={TextStyles.h5purplebold}>Help {"&"} Support</Text>
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
 
   headerText: {
     color: '#fff',
-    fontSize: RFValue(20, 812),
+    fontSize: widthScale(20),
     fontFamily: 'silka-bold-webfont',
 
 
@@ -172,8 +172,8 @@ const styles = StyleSheet.create({
     width: '95%',
     alignSelf: 'center'
   },
-  h5whitebold:{ flex: 1, fontSize: RFValue(15, 812), color: '#fff', fontFamily: 'silka-bold-webfont', },
-  h5white:{ flex: 1, fontSize: RFValue(15, 812), color: '#fff', fontFamily: 'silka-medium-webfont', },
+  h5whitebold:{ flex: 1, fontSize: widthScale(15), color: '#fff', fontFamily: 'silka-bold-webfont', },
+  h5white:{ flex: 1, fontSize: widthScale(12), color: '#fff', fontFamily: 'silka-medium-webfont', },
 
 
 })

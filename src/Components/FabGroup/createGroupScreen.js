@@ -158,7 +158,7 @@ class CreateGroupScreen extends React.Component {
             }}>
  <Image source={require('../../Images/cameraframe.png')} style={styles.badge}/>
 </ImageBackground>
-            <Image source={require('../../Images/njcfdn.png')}/>
+            <Image source={require('../../Images/messagevector.png')}/>
 
           </View>
 

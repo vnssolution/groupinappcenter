@@ -340,7 +340,7 @@ class CreateGroup extends Component {
                         : null}
                     </ImageBackground>
                 {/* </View> */}
-                <View style={{ backgroundColor: '#F1F5FF', }}>
+                <View style={{ backgroundColor: '#FAF4FF', }}>
                     {/* <Text>Hello</Text> */}
                     <FlatList
                         data={formatrowdata(this.state.grouplist)}
