@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ImageBackground, Image,KeyboardAvoidingView,Scr
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import TextStyles from '../../CssStyles/TextStyles';
+import  {widthScale,TextStyles} from '../../CssStyles/TextStyles'
 import Switchtoggle from '../UI/Switchtoggle'
 import NotificationCard from '../UI/NotificationCard'
 import CssStyles from '../../CssStyles/CssStyles'
@@ -37,8 +37,8 @@ class NotificationScreen extends React.Component {
                         }} />
                     </TouchableOpacity>
                     <View style={styles.groupinviewstyle}>
-                        <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center', alignItems: 'flex-start', margin: '2%' }}>
-                            <Text style={{ color: 'white', fontSize: RFValue(20, 812), fontFamily: 'silka-medium-webfont',marginLeft:'5%',justifyContent: 'center', alignContent: 'center', }}>Notifications</Text>
+                        <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'flex-start', margin: '2%' }}>
+                            <Text style={{ color: 'white', fontSize: widthScale(20), fontFamily: 'silka-medium-webfont',marginLeft:'5%',justifyContent: 'center', alignContent: 'center', }}>Notifications</Text>
                             {/* <Text style={{ color: 'white', fontSize: RFValue(16, 812), fontFamily: 'silka-medium-webfont' }}>35 contacts uploaded</Text> */}
                         </View>
                     </View>
@@ -78,19 +78,19 @@ class NotificationScreen extends React.Component {
                         </View>
                     </View>
                 </View>
-                <View style={styles.cardview}>
+                <View style={styles.cardviewstyle}>
                   <Text style={styles.textcolor}>Admin</Text>
                  <NotificationCard/>
                 </View>
-                <View style={styles.cardview}>
+                <View style={styles.cardviewstyle}>
                   <Text style={styles.textcolor}>General</Text>
                  <NotificationCard/>
                 </View>
-                <View style={styles.cardview}>
+                <View style={styles.cardviewstyle}>
                   <Text style={styles.textcolor}>Broadcast</Text>
                  <NotificationCard/>
                 </View>
-                <View style={{marginTop:'3%'}}/>
+                <View style={{marginTop:'5%'}}/>
             </ScrollView>
 
         );
@@ -102,15 +102,16 @@ const styles = StyleSheet.create({
     maincontainer: { flex: 1, backgroundColor: '#FAF4FF', },
     mainfirstview: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: '3%', width: '100%',marginTop:'3%' },
     groupinviewstyle: {
-        flex: 4, alignItems: 'flex-start', alignContent: 'center', justifyContent: 'center',
+         alignItems: 'flex-start', alignContent: 'center', justifyContent: 'center',
     },
     groupinview: { flex: 2, alignItems: 'center', alignContent: 'center', justifyContent: 'center', width: '100%', },
     moreview: { flex: 1, alignItems: 'center', justifyContent: 'center', marginRight: '3%' },
-    cardview: { elevation: 10, backgroundColor: '#fff', borderRadius: 10, marginLeft: '5%', padding: '2%', marginRight: '5%', marginTop: '2%', },
+    cardview: { elevation: 10, backgroundColor: '#fff', borderRadius: 10, marginLeft: '5%', padding: '2%',paddingLeft:'5%', marginRight: '5%', marginTop: '2%', },
+    cardviewstyle: { elevation: 10, backgroundColor: '#fff', borderRadius: 10, marginLeft: '5%', padding: '5%', marginRight: '5%', marginTop: '2%', },
     toggleview: { marginLeft: 'auto',justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center',},
-    textcolor:{color:'#792BA9',fontFamily: 'silka-bold-webfont',fontSize: RFValue(15, 812)},
-    toggletext:{ fontSize: RFValue(15, 812), fontFamily: 'silka-medium-webfont', color: '#000', textAlign: 'center',marginTop:'2%' },
-    toggletextcolor:{ fontSize: RFValue(15, 812), fontFamily: 'silka-medium-webfont', color: '#792BA9', textAlign: 'center',marginTop:'2%'  },
+    textcolor:{color:'#792BA9',fontFamily: 'silka-bold-webfont',fontSize: widthScale(15)},
+    toggletext:{ fontSize: widthScale(15), fontFamily: 'silka-medium-webfont', color: '#000', textAlign: 'center',marginTop:'1%' },
+    toggletextcolor:{ fontSize: widthScale(15), fontFamily: 'silka-medium-webfont', color: '#792BA9', textAlign: 'center',marginTop:'1%'  },
 
 
 })

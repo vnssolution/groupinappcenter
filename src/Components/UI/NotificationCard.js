@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import  {widthScale,TextStyles} from '../../CssStyles/TextStyles'
 
 class NotificationCard extends React.Component {
     constructor(props) {
@@ -23,17 +24,17 @@ class NotificationCard extends React.Component {
         return (
             <View>
                 <View style={{ marginTop: '4%' }}>
-                    <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: RFValue(15, 812) }}>Notification tone</Text>
-                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: RFValue(15, 812) }}>Lorem ipsum</Text>
+                    <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>Notification tone</Text>
+                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Lorem ipsum</Text>
                 </View>
                 <View style={{ borderBottomWidth: 0.2, borderBottomColor: 'black', marginTop: '3%' }} />
                 <View style={{ flexDirection: 'row', marginTop: '3%' }}>
                     <View style={{ marginTop: '2%' }}>
-                        <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: RFValue(15, 812) }}>Vibrate</Text>
+                        <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>Vibrate</Text>
                         {this.state.switchValue ?
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: RFValue(15, 812) }}>Yes</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Yes</Text>
                             :
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: RFValue(15, 812) }}>No</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>No</Text>
                         }
                     </View>
                     <View style={styles.toggleview}>
@@ -46,11 +47,11 @@ class NotificationCard extends React.Component {
                 <View style={{ borderBottomWidth: 0.2, borderBottomColor: 'black', marginTop: '3%' }} />
                 <View style={{ flexDirection: 'row', marginTop: '3%' }}>
                     <View style={{ marginTop: '2%' }}>
-                        <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: RFValue(15, 812) }}>Pop up Notifications</Text>
+                        <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>Pop up Notifications</Text>
                         {this.state.valueSwitch ?
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: RFValue(15, 812) }}>Yes</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Yes</Text>
                             :
-                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: RFValue(15, 812) }}>No</Text>
+                            <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>No</Text>
                         }
                     </View>
                     <View style={styles.toggleview}>
@@ -63,8 +64,8 @@ class NotificationCard extends React.Component {
                 <View style={{ borderBottomWidth: 0.2, borderBottomColor: 'black', marginTop: '3%' }} />
 
                 <View style={{ marginTop: '4%' }}>
-                    <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: RFValue(15, 812) }}>High Priority Notifications</Text>
-                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: RFValue(15, 812) }}>Show Preview on top of the screen</Text>
+                    <Text style={{ fontFamily: 'silka-bold-webfont',fontSize: widthScale(15) }}>High Priority Notifications</Text>
+                    <Text style={{ fontFamily: 'silka-medium-webfont',fontSize: widthScale(15) }}>Show Preview on top of the screen</Text>
                 </View>
             </View>
 

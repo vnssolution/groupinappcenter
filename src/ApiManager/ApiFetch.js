@@ -1,120 +1,124 @@
-import { BASE_URL } from '../ApiManager/ApiEndpoints'
 
-const ApiFetch = {
-  /// For Api get use this
-  fetchGet: function (url) {
-    let headers = getHeader();
-    console.log(
-      'get url ==>>>' + BASE_URL + url,
-      'headers =>>>',
-      headers,
-    );
-    return fetch(BASE_URL + url, {
-      method: 'GET',
-      headers: headers,
+import *as GINAPI from '../ApiManager/ApiEndpoints'
+import axios from "axios";
+
+// Get calls
+export function CategoryList() {
+  let reqesturl = GINAPI.BASE_URL+GINAPI.CATEGORIES_ENDPOINTS
+  return axios
+    .get(reqesturl)
+    .then(response => {
+      return response;
     })
-      .then(response => {return response.json()})
-      .then(responseJson => {
-        return responseJson;
-      })
-      .catch(error => {
-        console.log('error=>>>', error);
-      });
-  },
-  // for Api Post use this
-  fetchPost: function (url, body) {
-    let headers = getHeader();
-    console.log(
-      'url ==>>',
-      BASE_URL + url,
-      '  body==',
-      body,
-      'headers=>>>',
-      headers,
-    );
+    .catch(function (error) {
+      return error;
+    });
+}
+export function StateListApi(token) {
 
-    return fetch(BASE_URL + url, {
-      method: 'POST',
-      headers: headers,
-      body: body,
+  let reqesturl = GINAPI.BASE_URL + GINAPI.STATE_ENDPOINTS
+
+  return axios
+    .get(reqesturl, {
+      headers: {
+        Authorization: 'Bearer ' + token //the token is a variable which holds the token
+      }
+    }
+    )
+    .then(response => {
+      console.log("StateListApi token response" + response)
+      return response;
     })
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log("Api Response=====>", responseJson);
-        return responseJson;
-      })
-      .catch(error => {
-        console.log('Error', error);
-      });
-  },
-  fetchPut: function (url, body) {
-    let headers = getHeader();
-    console.log(
-      'url ==>>',
-      BASE_URL + url,
-      '  body==',
-      body,
-      'headers=>>>',
-      headers,
-    );
-
-    return fetch(BASE_URL + url, {
-      method: 'PUT',
-      headers: headers,
-      body: body,
+    .catch(function (error) {
+      return error;
+    });
+}
+export function CityListApi(token) {
+  console.log("CityListApi token" + token)
+  let reqesturl = GINAPI.BASE_URL + GINAPI.CITY_ENDPOINTS
+  return axios
+    .get(reqesturl,
+      {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      }
+    )
+    .then(response => {
+      console.log("CityListApi token response" + response)
+      return response;
     })
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log("Api Response=====>", responseJson);
-        return responseJson;
-      })
-      .catch(error => {
-        console.log('Error', error);
-      });
-  },
+    .catch(function (error) {
+      return error;
+    });
+}
 
-  fetchDelete: function (url, body) {
-    let headers = getHeader();
-    console.log(
-      'url ==>>',
-      BASE_URL + url,
-      '  body==',
-      body,
-      'headers=>>>',
-      headers,
-    );
+export function CityListApiBYSTATEID(token,id) {
+  console.log("CityListApiBYSTATEID token" + token)
 
-    return fetch(BASE_URL + url, {
-      method: 'DELETE',
-      headers: headers,
-      body: body,
+  let reqesturl = GINAPI.BASE_URL + GINAPI.CITYBY_STATE_ID+id
+  return axios
+    .get(reqesturl,
+      {
+        headers: {
+          Authorization: 'Bearer ' + token 
+        }
+      }
+    )
+    .then(response => {
+      console.log("CityListApi token response" + response)
+      return response;
     })
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log("Api Response=====>", responseJson);
-        return responseJson;
-      })
-      .catch(error => {
-        console.log('Error', error);
-      });
-  },
+    .catch(function (error) {
+      return error;
+    });
+}
 
-//   futch: function(url, opts={}, onProgress){
-//     console.log(BASE_URL + url, opts)
-//     const urlToCall = BASE_URL + url
-//     return new Promise((res, rej) => {
-//       var xhr = new XMLHttpRequest();
-//       xhr.open(opts.method || 'get', urlToCall);
-//       for (var k in opts.headers || {})
-//           xhr.setRequestHeader(k, opts.headers[k]);
-//       xhr.onload = e => res(e.target);
-//       xhr.onerror = rej;
-//       if (xhr.upload && onProgress)
-//           xhr.upload.onprogress = onProgress; // event.loaded / event.total * 100 ; //event.lengthComputable
-//       xhr.send(opts.body);
-//   });
 
-//   }
 
-};
-export default ApiFetch
+
+// POST CALLS
+
+export function GINREG(requestdata) {
+  let reqesturl = GINAPI.BASE_URL + GINAPI.USER_REG_ENDPOINTS
+  return axios
+    .post(reqesturl, requestdata)
+    .then(response => {
+      return response;
+    })
+    .catch(function (error) {
+      return error;
+    });
+}
+export function MOBVALDIATE(requestdata) {
+  let reqesturl = GINAPI.BASE_URL + GINAPI.MOBILE_VAL_ENDPOINTS
+  return axios
+    .post(reqesturl, requestdata)
+    .then(response => {
+      return response;
+    })
+    .catch(function (error) {
+      return error;
+    });
+}
+export function INSERTPROFILE(requestdata,token,id) {
+  let reqesturl = GINAPI.BASE_URL+GINAPI.INSERT_PROFILE+id
+  let headers ={
+    Authorization: 'Bearer ' + token 
+  }
+  console.log("INSERTPROFILE url"+JSON.stringify(reqesturl))
+  return axios
+    .post(reqesturl, requestdata,{ headers: headers })
+    .then(response => {
+      console.log("INSERTPROFILE token response" + response)
+      return response;
+    })
+    .catch(function (error) {
+      console.log("INSERTPROFILE token response" + error)
+      return error;
+    });
+}
+
+
+
+

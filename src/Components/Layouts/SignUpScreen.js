@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, Animated, Alert, ImageBackground, Image, TextInput, ToastAndroid, KeyboardAvoidingView,Dimensions } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 import { TouchableOpacity,ScrollView } from 'react-native-gesture-handler';
 import CssStyles from '../../CssStyles/CssStyles';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
@@ -18,19 +19,23 @@ export default class SignUpScreen extends Component {
 
     }
   }
+  componentDidMount(){
+    
+  }
   validatephone(username, password, confirmpassword) {
     if (username == "" || username == undefined || username == null) {
       ToastAndroid.show("please enter username", ToastAndroid.LONG)
     }
     else if (password == "" || password == undefined || password == null) {
       ToastAndroid.show("please enter password", ToastAndroid.LONG)
-    } else if (confirmpassword == "" || confirmpassword == undefined || confirmpassword == null) {
+    } else if ((confirmpassword == "" || confirmpassword == undefined || confirmpassword == null)&&(password===confirmpassword)) {
       ToastAndroid.show("please enter confirmpassword matches with password ", ToastAndroid.LONG)
     }
-
     else {
-
-      this.props.navigation.navigate("DetailsScreen",)
+      this.props.navigation.navigate("DetailsScreen",{
+        username:this.state.username,
+        password:this.state.password
+      })
     }
   }
   renderCustomIconA = () => {
@@ -67,7 +72,7 @@ export default class SignUpScreen extends Component {
               resizeMode='stretch'
               source={require('../../Images/bg.png')}>
 
-                    <View style={{ flexDirection: 'row',margin:'3%',marginTop:'2%'  }}>
+                    <View style={{ flexDirection: 'row',margin:'3%',marginTop:'3%'  }}>
             <TouchableOpacity onPress={() => this.props.navigation.pop()}>
             <Image source={require('../../Images/backimagecircle.png')} style={{
                 resizeMode: 'contain', width: wp('10%',812),
@@ -91,17 +96,21 @@ export default class SignUpScreen extends Component {
               }} />
             </View> */}
              <View style={styles.groupimageview}>
-              <Text style={TextStyles.h3whitecenter}>Set Your Username and Password</Text>
+              <Text style={[TextStyles.h3whitecenter]}>Set Your Username and Password</Text>
               </View>
+              {/* <View style={styles.groupimageview}>
+              <Text style={TextStyles.h3whitecenter}>Enter the OTP sent to </Text>
+              <Text style={TextStyles.h3whitecenter}>your mobile number</Text>
+
+            </View> */}
               </View>
-              <View style={styles.groupinimage
-              }>
-                <ImageBackground source={require('../../Images/Group28.png')} style={{
-                  resizeMode: 'contain', alignItems: 'center', justifyContent: 'center',  width: 90,
-                  height: 90,
+              <View style={styles.groupinimage}>
+                <ImageBackground source={require('../../Images/signuplogo.png')} style={{
+                  resizeMode: 'contain', alignItems: 'center', justifyContent: 'center',  width: wp("28%"),
+                  height: hp("15%"),
                 }}>
-                  <ImageBackground source={require('../../Images/Ellipse9.png')} style={styles.badge}>
-                    <Image source={require('../../Images/camera3x.png')} style={styles.badgeimage} />
+                  <ImageBackground source={require('../../Images/Ellipseblue.png')} style={styles.badge}>
+                    <Image source={require('../../Images/cameraicon.png')} style={styles.badgeimage} />
                   </ImageBackground>
                 </ImageBackground>
               </View>
@@ -231,10 +240,10 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
     left: 14,
-    top: 10,
+    top: 8,
   },
-  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center',marginLeft:widthScale(10),  },
-  groupinimage:{ alignContent: 'center', alignItems: 'center', justifyContent: 'center',marginTop:'5%',marginBottom:'2%' },
+  groupimageview: { alignContent: 'center', alignItems: 'center', justifyContent: 'center',marginLeft:widthScale(15),marginBottom:'3%'  },
+  groupinimage:{ alignContent: 'center', alignItems: 'center', justifyContent: 'center',marginTop:'1%', },
   badgeicon: {
     //  backgroundColor: 'red',                                                                                                                                                                                      
     width: 50,

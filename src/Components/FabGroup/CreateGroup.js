@@ -2,9 +2,14 @@ import React, { Component } from 'react'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { View, Text, ImageBackground, Image, StyleSheet, Dimensions, FlatList, Modal, Pressable, TextInput } from 'react-native';
 import CssStyles from '../../CssStyles/CssStyles'
+import { Avatar, Badge, Icon, withBadge } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import TextStyles from '../../CssStyles/TextStyles';
+import { SearchBar } from 'react-native-elements';
+
+import { RadioButton } from 'react-native-paper';
+
 
 const formatrowdata = (data) => {
     const numberOfFullRows = Math.floor(data.length);
@@ -33,7 +38,7 @@ class CreateGroup extends Component {
                 tittle: "Contact Name",
                 text: "Mahesh:Loreum ipsum is a text",
                 // uri: require("../../Images/users/avatar.png"),
-                uri: require("../../Images/vector1.png"),
+                uri: require("../../Images/users/layer19.png"),
                 click: false,
                 id: "0",
                 selectedClass: styles.unlist
@@ -41,7 +46,7 @@ class CreateGroup extends Component {
             {
                 tittle: "Contact Name",
                 text: "Mahesh:Loreum ipsum is a text",
-                uri: require("../../Images/vector2.png"),
+                uri: require("../../Images/users/layer21.png"),
                 click: false,
                 id: "1",
                 selectedClass: styles.unlist
@@ -49,7 +54,7 @@ class CreateGroup extends Component {
             {
                 tittle: "Contact Name",
                 text: "Mahesh:Loreum ipsum is a text",
-                uri: require("../../Images/vector1.png"),
+                uri: require("../../Images/users/layer22.png"),
                 click: false,
                 id: "2",
                 selectedClass: styles.unlist
@@ -158,26 +163,18 @@ class CreateGroup extends Component {
 
 
         return (
-            <View>
+            <View style={{ elevation: 10,
+                borderRadius: hp('2%', 812),
+               
+                backgroundColor: '#fff',
+                marginLeft: '5%', marginRight: '3%',  marginTop: '2%',
+              }}>
                 <TouchableOpacity style={styles.generalgrid} onPress={() => this.selectItem(data, data.item.id)}>
                     <View style={styles.generalfirstcolum}>
-                        <ImageBackground style={{
-                            width: wp('10%', 812), height: hp('7%', 812), alignItems: 'flex-end', justifyContent: 'flex-end'
-                        }} resizeMode='contain' source={data.item.uri} >
-                            {data.item.selectedClass ?
-                                <View style={{
-                                    flex: 0.2,
-                                    position: "absolute",
-                                    bottom: -5,
-                                    left: 21
-
-
-                                }}>
-                                    <Image resizeMode='center' source={require('../../Images/Group153x.png')} style={data.item.selectedClass} />
-                                </View>
-
-                                : null}
-                        </ImageBackground>
+                        <Image style={{
+                            width: wp('10%', 812), height: hp('7%', 812), alignItems: 'flex-end', justifyContent: 'flex-end',flexDirection:'row'
+                        }} resizeMode='contain' source={data.item.uri} />
+                           
                     </View>
                     <View style={styles.generalseccolumn}>
                         <Text style={TextStyles.h5purplebold}>{data.item.tittle}</Text>
@@ -185,6 +182,16 @@ class CreateGroup extends Component {
                             <Text style={TextStyles.h5black}>{data.item.text}</Text>
                         </View>
                     </View>
+                    {data.item.selectedClass ?
+                                <View style={{
+                                 alignItems: 'center', justifyContent: 'center',margin:'3%',marginTop:'5%'
+
+
+                                }}>
+                                    <Image resizeMode='center' source={require('../../Images/Group153x.png')} style={data.item.selectedClass} />
+                                </View>
+
+                                : null}
                 </TouchableOpacity>
             </View>
         )
@@ -333,7 +340,7 @@ class CreateGroup extends Component {
                         : null}
                     </ImageBackground>
                 {/* </View> */}
-                <View style={{ backgroundColor: '#F1F5FF', }}>
+                <View style={{ backgroundColor: '#FAF4FF', }}>
                     {/* <Text>Hello</Text> */}
                     <FlatList
                         data={formatrowdata(this.state.grouplist)}
@@ -360,19 +367,29 @@ class CreateGroup extends Component {
                     ]}
 
                 >
-                    <View style={{ flex: 0.5, alignItems: 'flex-end', justifyContent: 'center', }}>
+                    <View style={styles.cardview}>
+                 
                         <Image source={require('../../Images/addmem3x.png')} style={{
+                            resizeMode: 'contain', width: wp('7%', 812),
+                            height: hp('3%', 812),
+                        }} />
+                  
+                    <View>
+                        <Text style={[TextStyles.h5lightpurple,{margin:'4%'}]}>Add Member</Text>
+                    </View>
+{/* <View style={{ alignItems: 'flex-end', justifyContent: 'center', }}> 
+                     <Image source={require('../../Images/addmem3x.png')} style={{
                             resizeMode: 'contain', width: wp(9, 812),
                             height: hp('3%', 812),
                         }} />
-                    </View>
-                    <View style={{ justifyContent: 'center', alignContent: 'center', flex: 3, marginLeft: '1%', alignItems: 'flex-start' }}>
+                         <View style={{ justifyContent: 'center', alignContent: 'center', flex: 3, marginLeft: '1%', alignItems: 'flex-start' }}>
                         <Text style={TextStyles.h5lightpurplebold}>Add New Member</Text>
                     </View>
-
+                    </View> */}
+                    </View>
                 </Pressable>
 
-                <View style={{ flex: 1, backgroundColor: '#FAF4FF', }}>
+                <View style={{ flex: 1, backgroundColor: '#fff' }}>
                     <FlatList
                         data={formatrowdata(this.state.grouplist)}
                         style={styles.container}
@@ -418,11 +435,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     generalgrid: {
-        backgroundColor: '#fff', flexDirection: 'row',
+       flexDirection: 'row',
         justifyContent: 'center', alignContent: 'center', alignItems: 'center',
-        height: hp('8%', 812),
+       
     },
-    generalfirstcolum: { flex: 0.5, alignItems: 'flex-end', justifyContent: 'center', width: '100%', },
+    generalfirstcolum: { flex: 0.5, alignItems: 'flex-end', justifyContent: 'center', width: '100%',margin:'1%' },
     generalseccolumn: { flex: 3, justifyContent: 'space-between', alignItems: 'flex-start', marginLeft: '2%' },
     maincontainer: {
         flex: 1,
@@ -485,5 +502,6 @@ const styles = StyleSheet.create({
         flex: 4, alignItems: 'flex-start', alignContent: 'center', justifyContent: 'center',
     },
     h7purplecont: { color: '#A47CC3', fontSize: RFValue(11, 812), fontFamily: 'silka-medium-webfont', },
+    cardview: { elevation: 10, backgroundColor: '#fff', borderRadius: 10,  width:wp(92,812),flexDirection:'row',padding:'2%',marginLeft:'2%'},
 
 })
