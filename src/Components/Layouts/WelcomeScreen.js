@@ -63,9 +63,9 @@ class WelcomeScreen extends React.Component {
               <View style={styles.generalfirstcolum}>
 
 <Image style={{
-    resizeMode: 'contain', width: wp('13%', 812),
+    resizeMode: 'contain', width: wp('12%', 812),
     height: hp('10%', 812),
-}} source={require('../../Images/UI/Group82.png')} />
+}} source={require('../../Images/Group79.png')} />
 
 </View>
 <View style={styles.generalseccolumn}>

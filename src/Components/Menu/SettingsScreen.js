@@ -123,7 +123,7 @@ class SettingsScreen extends React.Component {
             <TouchableOpacity style={{ flexDirection: 'row', marginLeft: '5%', marginRight: '5%' }}>
               <Image style={{
                 resizeMode: 'contain', width: wp('10%',812),
-                 height: hp('10%',812),
+                 height: hp('10%',812), margin: '1%'
               }} source={require('../../Images/help.png')} />
               <View style={{ justifyContent: 'center', alignItems: 'flex-start', alignContent: 'center', marginLeft: '2%' }}>
                 <Text  numberOfLines={1} style={TextStyles.h5purplebold}>Help {"&"} Support</Text>
