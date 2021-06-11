@@ -16,6 +16,7 @@ export default class SignInScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            navigation: this.props.route.params,
             phonenumber: '',
             email: ''
         }
@@ -169,7 +170,7 @@ export default class SignInScreen extends Component {
                                     // this.props.navigation.navigate("InputOtp", {
                                     //     sign: "signup"
                                     // });
-                                    this.login("user", this.state.phonenumber, this.state.email)
+                                    this.login(this.state.navigation.usertype, this.state.phonenumber, this.state.email)
                                 }}>
                                     {/* <Text style={CssStyles.submittext}>Next</Text> */}
                                     <Image source={require('../../Images/rightarrow.png')} style={CssStyles.rightarrowstyle} />

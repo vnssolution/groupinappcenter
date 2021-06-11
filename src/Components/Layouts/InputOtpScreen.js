@@ -52,7 +52,7 @@ export default class InputOtpScreen extends Component {
   }
   async validinput(otpval,) {
     this.setState({ isLoading: true })
-
+if( this.state.navigation.sign =="signup"){
     let valreq = {
       mobileNumber:  this.state.navigation.phonenumber,
       mblNumOtp: otpval
@@ -90,32 +90,34 @@ export default class InputOtpScreen extends Component {
         this.setState({
           isLoading: false
         })
+        
 
       }
     }
+  }
 
-    // if (otpval == "1234" || otpval == 1234) {
-    //   Keyboard.dismiss()
-    //   {
-    //     this.state.navigation.sign ?
+   else if (otpval == "1234" || otpval == 1234) {
+      Keyboard.dismiss()
+      {
+        this.state.navigation.sign ?
 
-    //       this.props.navigation.navigate("SignUpScreen")
-    //       :
-    //       this.props.navigation.navigate("GroupInHome")
-    //   }
-    //   this.setState({
-    //     isLoading: false
-    // })
-    // }
-    // else {
-    //   this.setState({
-    //     isLoading: false
-    // })
-    //   ToastAndroid.show("Enter valid otp", ToastAndroid.SHORT)
-    //   this.setState({ otpval: "" })
+          this.props.navigation.navigate("SignUpScreen")
+          :
+          this.props.navigation.navigate("GroupInHome")
+      }
+      this.setState({
+        isLoading: false
+    })
+    }
+    else {
+      this.setState({
+        isLoading: false
+    })
+      ToastAndroid.show("Enter valid otp", ToastAndroid.SHORT)
+      this.setState({ otpval: "" })
 
 
-    // }
+    }
   }
   renderLoader = () => {
     return (
