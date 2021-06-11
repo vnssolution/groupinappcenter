@@ -214,9 +214,8 @@ class DetailsScreen extends Component {
     console.log("userRegFormres res =="+JSON.stringify(userRegFormres.data))
     if(userRegFormres.data.status ===true){
         ToastAndroid.show(userRegFormres.data.message, ToastAndroid.LONG)
-        // this.props.navigation.navigate("GroupInHome")
+        this.props.navigation.navigate("GroupInHome")
     }
-    
   }
   else{
     ToastAndroid.show(userRegFormres, ToastAndroid.LONG)
